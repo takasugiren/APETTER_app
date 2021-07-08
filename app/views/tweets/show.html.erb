@@ -1,0 +1,20 @@
+<%= attachment_image_tag @tweet, :image %>
+  <p>本文：<%= @tweet.body %></p>
+  <p>ユーザーネーム：<%= @tweet.user.name %></p>
+  <p id="comments-count">コメント数:<%= @tweet.tweet_comments.count %></p>
+  <p>投稿日時：<%= @tweet.created_at.strftime('%Y年%m月%d日') %></p>
+  <% if @tweet.user == current_user %>
+  <%= link_to "削除", tweet_path(@tweet), method: :delete %>
+  <% end %>
+  <div id="favorite-<%= @tweet.id %>">
+    <%= render 'tweets/favorites', tweet: @tweet %>
+  </div>
+ <table id="tweet_comments">
+   <div id="target_comments">
+     <%= render 'tweet_comments/index', tweet: @tweet %>
+   </div>
+ </table>
+  <%= form_with(model:[@tweet, @tweet_comment], remote: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>

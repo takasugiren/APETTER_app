@@ -1,0 +1,13 @@
+<% if tweet.favorited_by?(current_user) %>
+  <p>
+    <%= link_to tweet_favorites_path(tweet), method: :delete, remote: true do %>
+      ♥<%= tweet.favorites.count %> いいね
+    <% end %>
+  </p>
+  <% else %>
+  <p>
+    <%= link_to tweet_favorites_path(tweet), method: :post, remote: true do %>
+      ♡<%= tweet.favorites.count %> いいね
+    <% end %>
+  </p>
+<% end %>

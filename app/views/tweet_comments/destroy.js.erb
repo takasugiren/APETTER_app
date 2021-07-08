@@ -1,0 +1,3 @@
+$("#comments-count").html("コメント数:<%= @tweet.tweet_comments.count %>");
+$("#comment<%= @tweet_comment_id %>").remove();
+$("#tweet_comment_comment").val('');

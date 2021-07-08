@@ -1,0 +1,11 @@
+<% @tweet.tweet_comments.each do |tweet_comment| %>
+<div id="comment<%= tweet_comment.id %>">
+  <%= tweet_comment.user.name %>
+  <%= tweet_comment.created_at.strftime('%Y/%m/%d') %><%= tweet_comment.comment %>
+  <% if tweet_comment.user == current_user %>
+    <div class="comment-delete">
+      <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet_id, tweet_comment.id), method: :delete, remote: true %>
+    </div>
+  <% end %>
+</div>
+<% end %>
