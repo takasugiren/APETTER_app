@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_075148) do
+ActiveRecord::Schema.define(version: 2021_07_08_115755) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -52,8 +52,9 @@ ActiveRecord::Schema.define(version: 2021_07_08_075148) do
     t.datetime "updated_at", null: false
     t.text "profile"
     t.string "profile_image_id"
-    t.integer "rank"
+    t.integer "rank", default: 0, null: false
     t.float "ratio"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
