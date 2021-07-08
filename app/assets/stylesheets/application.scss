@@ -41,6 +41,12 @@
     font-size: 170px;
   }
 
+  .logo {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+  }
+
   .logo-sub {
     color: #fff900;
     font-family: 'Press Start 2P', cursive;
@@ -55,4 +61,20 @@
   .description {
     color: white;
     font-size: 30px;
+  }
+
+  .login {
+    background-color: white;
+    width: 700px;
+    height: 570px;
+  }
+
+  .login-form {
+    width: 600px;
+  }
+
+  .sign-up {
+    background-color: white;
+    width: 700px;
+    height: 650px;
   }

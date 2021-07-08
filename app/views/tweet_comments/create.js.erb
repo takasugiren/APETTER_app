@@ -1,3 +1,3 @@
 $("#comments-count").html("コメント数:<%= @tweet.tweet_comments.count %>");
-$("#tweet_comments").html("<%= j(render 'tweet_comments/index', tweet: @tweet ) %>");
+$("#target_comments").html("<%= j(render 'tweet_comments/index', tweet: @tweet ) %>");
 $("#tweet_comment_comment").val('');
