@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+ // 「ログインしました」などのフラッシュ用スタイル
+  .alert-notice {
+    @extend .alert-info;
+  }
+
+  .alert-alert {
+    @extend .alert-danger;
+  }
+
+  body {
+    background-color: #A92A2A;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    font-size: 22px;
+  }
+
+  .top {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 170px;
+  }
+
+  .logo-sub {
+    color: #fff900;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50px;
+  }
+
+  .logo-sub-sub {
+    color: white;
+    font-size: 50px;
+  }
+
+  .description {
+    color: white;
+    font-size: 30px;
+  }
