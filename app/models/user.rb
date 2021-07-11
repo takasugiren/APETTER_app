@@ -18,6 +18,13 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'ゲスト'
+    end
+  end
+
   # relationships_controllerで使うメソッド
   def follow(user_id)
     relationships.create(followed_id: user_id)
