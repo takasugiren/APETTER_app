@@ -78,3 +78,19 @@
     width: 700px;
     height: 650px;
   }
+
+  .tweet-back {
+    background-color: white;
+    padding: 10px 100px;
+  }
+
+  .effect {
+    border-radius: 50%;
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+  }
+
+  .tweet-image {
+    padding: 30px 30px;
+  }
