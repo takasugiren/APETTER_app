@@ -14,6 +14,7 @@
 
  @import "bootstrap";
  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
  // 「ログインしました」などのフラッシュ用スタイル
   .alert-notice {
     @extend .alert-info;
@@ -101,5 +102,59 @@
 
   .user-back {
     background-color: white;
-    padding: 10px 10px;
+    padding: 30px 30px;
+  }
+
+  .user-edit {
+    color: white;
+    font-family: 'DotGothic16', sans-serif;
+  }
+
+  .browser-back {
+    font-size: 25px;
+  }
+
+  .user-name {
+    font-size: 25px;
+    font-family: 'DotGothic16', sans-serif;
+  }
+
+  .profile {
+    padding: 10px;
+    border: 3px double #111111;
+  }
+
+  ul i {
+    color: white;
+  }
+
+  .rank {
+    padding: 5px;
+    border: 3px double #111111;
+  }
+
+  .ratio {
+    padding: 5px;
+    border: 3px double #111111;
+  }
+
+  h3 {
+    position: relative;
+    padding-left: 1.2em;
+    line-height: 1.4;
+  }
+
+  h3:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f075";
+    font-weight: 900;
+    position: absolite;
+    font-size: 1em;
+    left: 0;
+    top: 0;
+    color: #5ab9ff;
+  }
+
+  .tweet-created_at {
+    text-align: right;
   }

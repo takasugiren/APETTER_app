@@ -6,17 +6,17 @@
           <ul class="collapse navbar-collapse mt-3 mr-5">
             <% if user_signed_in? %>
               <li class="mx-4">
-                <%#= link_to "マイページ", user_path(current_user.id), style: "color: white" %>
+                <i class="fas fa-user-circle"></i><%= link_to "マイページ", user_path(current_user.id), style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
               </li>
               <li class="mx-4">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "color: white" %>
+                <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
               </li>
             <% else %>
               <li class="mx-3">
-                <%= link_to "ログイン", new_user_session_path, style: "color: white" %>
+                <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path, style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
               </li>
               <li class="mx-3">
-                <%= link_to "新規登録", new_user_registration_path, style: "color: white" %>
+                <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path, style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
               </li>
             <% end %>
           </ul>
