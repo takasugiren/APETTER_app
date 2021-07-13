@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :tweet_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
+  resources :tags do
+    get 'tweets', to: 'tweets#search'
+  end
   resources :users, only: [:show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
