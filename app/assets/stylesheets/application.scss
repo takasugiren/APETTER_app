@@ -80,13 +80,12 @@
 
   .sign-up {
     background-color: white;
-    width: 700px;
-    height: 650px;
+    padding: 35px;
   }
 
   .tweet-back {
     background-color: white;
-    padding: 10px 100px;
+    padding: 10px 50px;
   }
 
   .effect {
@@ -158,3 +157,33 @@
   .tweet-created_at {
     text-align: right;
   }
+
+  .new-tweet {
+    color: white;
+    font-size: 50px;
+    font-family: 'DotGothic16', sans-serif;
+  }
+
+  .tags {
+    desplay: inline-block;
+    font-family: 'DotGothic16', sans-serif;
+  }
+
+  .tweet-item {
+    height: 30px;
+  }
+
+  .right-align {
+    text-align: right;
+  }
+
+  .favorite-icon-down {
+    color: #808080;
+  }
+
+
+  .favorite-icon-up {
+    color: #ff69b4;
+  }
+
+  

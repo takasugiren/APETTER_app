@@ -1,0 +1,11 @@
+<h2>投稿一覧</h2>
+<% @tag_list.each do |list| %>
+  <%= link_to list.tag_name, tag_tweets_path(tag_id: list.id) %>
+  <%= list.tweets.count %>
+<% end %>
+
+<div>タグが<strong><%= @tag.tag_name %></strong>の投稿一覧</div>
+
+<% @tweets.each do |tweet| %>
+  <%= link_to tweet.body, tweet_path(tweet) %>
+<% end %>
