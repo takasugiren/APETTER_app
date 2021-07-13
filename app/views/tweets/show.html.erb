@@ -1,5 +1,9 @@
 <%= attachment_image_tag @tweet, :image, size: "200x200",fallback: "no-image-icon.jpg" %>
   <p>本文：<%= @tweet.body %></p>
+  <% @tweet_tags.each do |tag| %>
+    <%= link_to tag.tag_name, tag_tweets_path(tag_id: tag.id) %>
+    <%= tag.tweets.count %>
+  <% end %>  
   <p>ユーザーネーム：<%= @tweet.user.name %></p>
   <p id="comments-count">コメント数:<%= @tweet.tweet_comments.count %></p>
   <p>投稿日時：<%= @tweet.created_at.strftime('%Y年%m月%d日') %></p>
