@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
     @tweet_comment = TweetComment.new
     @tweet_tags = @tweet.tags
   end
-  
+
   def search
     @tag_list = Tag.all               #全タグを取得
     @tag = Tag.find(params[:tag_id])  #参照したタグを取得

@@ -12,6 +12,10 @@ class Tweet < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  def self.looks(word)
+    @search_tweets = Tweet.where("body LIKE?", "%#{word}%")
+  end  
 
   def save_tag(sent_tags)
     # ツイートのcreateアクションにて保存した＠tweetに紐付いているタグが存在する場合、タグの名前を配列として全て取得する
