@@ -33,7 +33,7 @@
   }
 
   li {
-    font-size: 22px;
+    font-size: 25px;
   }
 
   .top {
@@ -165,7 +165,6 @@
   }
 
   .tags {
-    desplay: inline-block;
     font-family: 'DotGothic16', sans-serif;
   }
 
@@ -186,4 +185,70 @@
     color: #ff69b4;
   }
 
-  
+  .search-icon {
+    font-size: 25px;
+    color: white;
+  }
+
+  .search-form {
+    height: 38px;/*検索ボックスの高さ*/
+    padding: 0 10px;/*テキスト位置調整*/
+    border-radius: 5px;/*検索ボックスの角を丸める*/
+    border: 1px solid #ced4da;
+  }
+
+  .tweet-shadow {
+    padding: 10px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.12), 0 2px 3px 0 rgba(0,0,0,.22);
+    transition: .3s;
+  }
+
+  .tweet-shadow:hover {
+    box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px  rgba(0,0,0,.1);
+    transform: translateY(-4px);
+  }
+
+  .tag-design {
+    color: black;
+    padding: 1px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  .timeline {
+    font-size: 60px;
+    color: white;
+    font-family: 'DotGothic16', sans-serif;
+  }
+
+  .header-tab {
+    display: inline-block;
+    position: relative;
+    color: white;
+    text-decoration: none;
+  }
+
+  .header-tab::after {
+    position: absolite;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: white;
+    transition: all 0.3s ease 0s;
+  }
+
+
+  .hesder-tab:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  .hesder-tab:hover::after {
+    width: 100%;
+  }
+
+
+
+
