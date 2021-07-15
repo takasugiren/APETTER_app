@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2 class="timeline"><i class="fas fa-search"></i> <%= @word %></h2>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="tweet-back">
+        <div class="tweet-image">
+          <% users.each do |user| %>
+            <div class="row mb-5 tweet-shadow">
+              <div class="tweet-item col-2">
+                <%= link_to user_path(user) do %>
+                  <%= attachment_image_tag user, :profile_image, size: "100x100",fallback: "no_image.jpg", class: "effect" %><br>
+                <% end %>
+              </div>
+              <div class="tweet-item col-2">
+                <i class="fas fa-user"> 名前</i>
+              </div>
+              <div class="tweet-item col-2">
+                <i class="fas fa-medal"> ランク帯</i>
+              </div>
+              <div class="tweet-item col-2">
+                <i class="fas fa-skull"> K/D</i>
+              </div>
+              <div class="tweet-created_at col-4">
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

@@ -46,13 +46,13 @@
               </div>
               <div class="col-2"></div>
               <div class="col-10 mt-2">
-              <div class="tags">
-                <% tweet.tags.each do |tag| %>
-                  <%= link_to tag_tweets_path(tag_id: tag.id), style: "text-decoration: none;" do %>
-                  <span class="tag-design"><i class="fas fa-tags fa-xs"></i> <%= tag.tag_name %></span>
+                <div class="tags">
+                  <% tweet.tags.each do |tag| %>
+                    <%= link_to tag_tweets_path(tag_id: tag.id), style: "text-decoration: none;" do %>
+                    <span class="tag-design"><i class="fas fa-tags fa-xs"></i> <%= tag.tag_name %></span>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
+                </div>
               </div>
               <div class="col-2"></div>
               <div class="col-10 mt-2">
