@@ -3,13 +3,14 @@ class SearchesController < ApplicationController
 
   def search
     @range = params[:range]
+    @word = params[:word]
 
     if @range == 'ユーザー'
-      @users = User.looks(params[:word])
+      @search_users = User.looks(params[:word])
     elsif @range == 'ツイート'
-      @tweets = Tweet.looks(params[:word])
-    else 
-      @tags = Tag.looks(params[:word])
+      @search_tweets = Tweet.looks(params[:word])
+    else
+      @search_tags = Tag.looks(params[:word])
     end
   end
 end

@@ -1,11 +1,20 @@
+<div class="row">
 <% @tweet.tweet_comments.each do |tweet_comment| %>
-<div id="comment<%= tweet_comment.id %>">
-  <%= tweet_comment.user.name %>
-  <%= tweet_comment.created_at.strftime('%Y/%m/%d') %><%= tweet_comment.comment %>
-  <% if tweet_comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "削除", tweet_tweet_comment_path(tweet_comment.tweet_id, tweet_comment.id), method: :delete, remote: true %>
-    </div>
-  <% end %>
-</div>
+  <div class="comment-image col-1">
+    <%= attachment_image_tag tweet_comment.user, :profile_image, size: "50x50",fallback: "no_image.jpg", class:"effect" %>
+  </div>
+  <div class="col-11">
+    <%= tweet_comment.user.name %>
+    <span class="ml-3"><%= tweet_comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
+    <% if tweet_comment.user == current_user %>
+      <span class="ml-4">
+        <%= link_to "", tweet_tweet_comment_path(tweet_comment.tweet_id, tweet_comment.id), class: "fas fa-trash-alt", style: "color: red;", method: :delete, remote: true %>
+      </span>
+    <% end %>
+  </div>
+  <div class="col-1"></div>
+  <div id="comment<%= tweet_comment.id %>" class="col-11 mb-4">
+    <div class="balloon"><%= tweet_comment.comment %></div>
+  </div>
 <% end %>
+</div>
