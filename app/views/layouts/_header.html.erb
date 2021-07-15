@@ -8,12 +8,13 @@
             <i class="fas fa-user-circle"></i><%= link_to "マイページ", user_path(current_user.id), style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
           </li>
           <li>
-            <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-tab", style: "font-family: 'DotGothic16', sans-serif;" %>
+            <i class="fas fa-sign-out-alt"></i><%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "text-decoration: none; color: white; font-family: 'DotGothic16', sans-serif;" %>
           </li>
         </ul>
         <div class="ml-3 mt-3">
           <%= render "layouts/search" %>
         </div>
+        <!--<a class="btn btn-border"><span>PUSH！</span></a>-->
       </div>
       <% else %>
       <div class="collapse navbar-collapse">

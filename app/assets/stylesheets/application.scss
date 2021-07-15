@@ -250,5 +250,63 @@
   }
 
 
+  .tag-search-title {
+    color: white;
+    font-size: 30px;
+  }
+
+  .comment-image {
+    height: 18px;
+  }
+
+  /* 吹き出し本体 */
+.balloon{
+  position: relative;
+  display: inline-block;
+  padding: 6px 13px;
+  background-color: #d7ebfe;
+  color: #000;
+  border-radius: 15px;
+}
+/* 色付きの半円 */
+.balloon::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  left: -9px;
+  top: 5px;
+  border-left: 10px solid #d7ebfe;
+  border-top: 10px solid #d7ebfe;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+/* 白い半円 */
+.balloon::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  left: -9px;
+  top: -4px;
+  border-left: 10px solid #ffffff;
+  border-top: 10px solid #ffffff;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.tweet-delete {
+  color: red;
+}
 
 

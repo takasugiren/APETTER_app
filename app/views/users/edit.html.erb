@@ -6,11 +6,11 @@
     <div class="user-back col-8">
       <%= form_with model:@user, local:true do |f| %>
       <div class="row">
-        <%= link_to "⇦", request.referer, class: "browser-back", style: "text-decoration: none; color: black;" %>
+        <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
         <div class="col-12">
           <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "no_image.jpg", class:"effect" %>
         </div>
-        <div class="col-4 d-flex align-items-end">
+        <div class="col-4 mt-3 d-flex align-items-end">
           <div>
             <%= f.label 'ランク帯', class: "mb-1" %>
             <%= f.select :rank, User.ranks.keys, class: "mb-1" %>
