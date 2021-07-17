@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row justify-content-center'>
-    <h2 class="user-edit"><%= @tweet.user.name %>さんの投稿詳細</h2>
+    <h2 class="user-edit"><%= @tweet.user.name %> 投稿詳細</h2>
   </div>
   <div class="row justify-content-center mt-3">
     <div class="user-back col-10">
@@ -10,20 +10,26 @@
         </div>
         <div class="col-2 tweet-delete">
           <% if @tweet.user == current_user %>
-            <%= link_to "ツイート削除", tweet_path(@tweet), style: "color: red; text-decoration: none;", method: :delete, data: { confirm: '本当に消しますか？' } %> <i class="fas fa-trash-alt"></i>
+            <%= link_to tweet_path(@tweet), style: "color: red; text-decoration: none;", method: :delete, data: { confirm: '本当に消しますか？' } do %>
+              <i class="fas fa-trash-alt">ツイート削除</i>
+            <% end %>
           <% end %>
         </div>
         <div class="col-4">
           <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "no_image.jpg", class:"effect" %>
         </div>
         <div class="col-3 mt-5">
-          <i class="fas fa-users"></i>フォロー中 <%= @tweet.user.followings.count %><br>
+          <%= link_to user_followings_path(@tweet.user) do %>
+            <i class="fas fa-users follow-font-color"><span class="tags">フォロー中 </span><%= @tweet.user.followings.count %><br></i>
+          <% end %>
           <div class="user-name mt-5">
             <%= @tweet.user.name %>
           </div>
         </div>
         <div class="col-3 mt-5">
-          <i class="fas fa-users"></i>フォロワー <%= @tweet.user.followers.count %><br>
+          <%= link_to user_followers_path(@tweet.user) do %>
+            <i class="fas fa-users follow-font-color"><span class="tags">フォロワー </span><%= @tweet.user.followers.count %><br></i>
+          <% end %>
           <div class="mt-5">
             <% if @tweet.user.id != current_user.id %>
               <%= render "users/follow_btn", user: @tweet.user %>
@@ -31,17 +37,17 @@
           </div>
         </div>
         <div class="col-2"></div>
-        <div class="col-12 mt-3">紹介文<br>
+        <div class="col-12 mt-3"><p class="tags">紹介文</p>
           <div class="profile mt-2">
             <%= @tweet.user.profile %>
           </div>
         </div>
-        <div class="col-3 mt-3">ランク帯<br>
+        <div class="col-3 mt-3"><p class="tags">ランク帯</p>
           <div class="rank mt-2 text-center">
             <%= @tweet.user.rank %>
           </div>
         </div>
-        <div class="col-2 mt-3 ">K/D<br>
+        <div class="col-2 mt-3 "><p class="tags">K/D</p>
           <div class="ratio mt-2 text-center">
             <%= @tweet.user.ratio %>
           </div>
@@ -100,7 +106,9 @@
               <%= attachment_image_tag @tweet, :image, size: "760x400", style: "border-radius: 8px;" %>
           </div>
           <div class="col-2"></div>
-          <div class="col-10 mt-3 tags">コメント欄</div>
+          <div class="col-10 mt-3 tags">
+            <i class="far fa-comments">コメント欄</i>
+          </div>
           <div class="col-2"></div>
           <div id="target_comments" class="col-10 mt-3">
             <%= render 'tweet_comments/index', tweet: @tweet %>

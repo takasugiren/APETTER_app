@@ -1,22 +1,91 @@
-<h2>Follower Users</h2>
 <% if @users.exists? %>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td>フォロー数: <%= user.followings.count %></td>
-        <td>フォロワー数: <%= user.followers.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="tag-search-title"><%= @user.name %>さんのフォロワー <%= @user.followers.count %></div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="tweet-back">
+          <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+        <div class="tweet-image">
+          <% @users.each do |user| %>
+          <div class="row mb-3 tweet-shadow">
+            <div class="tweet-item col-2">
+              <%= link_to user_path(user) do %>
+                <%= attachment_image_tag user, :profile_image, size: "100x100",fallback: "no_image.jpg", class: "effect" %><br>
+              <% end %>
+            </div>
+            <div class="tweet-item col-2">
+              <i class="fas fa-user"> 名前</i>
+            </div>
+            <div class="tweet-item col-2">
+              <i class="fas fa-medal"> ランク帯</i>
+            </div>
+            <div class="tweet-item col-2">
+              <i class="fas fa-skull"> K/D</i>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-2"></div>
+            <div class="col-2">
+              <%= user.name %>
+            </div>
+            <div class="col-2">
+              <%= user.rank %>
+            </div>
+            <div class="col-2">
+              <% if user.ratio != nil %>
+                <%= user.ratio %>
+              <% else %>
+                未登録
+              <% end %>
+            </div>
+            <div class="col-4">
+              <% if user.id != current_user.id %>
+                <div class="tweet-created_at"><%= render "users/follow_btn", user: user %></div>
+              <% end %>
+            </div>
+              <div class="col-2"></div>
+            <div class="col-10 mt-2">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-10 mt-3">
+              <% if user.profile != nil %>
+                <%= user.profile %>
+              <% else %>
+                よろしくお願いします。
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-1">
+      <span class="back">
+        <a href="#">
+          <i class="fas fa-chevron-circle-up fa-2x"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
 <% else %>
-  <p>ユーザーはいません</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="tag-search-title"><%= @user.name %>さんのフォロワー <%= @user.followings.count %></div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="tweet-back">
+          <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+        <div class="tweet-image">
+          <p>まだフォローされていません。</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
 <% end %>

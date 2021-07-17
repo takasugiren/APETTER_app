@@ -25,7 +25,10 @@
   }
 
   body {
-    background-color: #A92A2A;
+    background-image: image-url("apex_legacy.jpg");
+    background-size: contain;
+    background-attachment: fixed;
+
   }
 
   ul {
@@ -105,7 +108,10 @@
   }
 
   .user-edit {
-    color: white;
+    color: black;
+    padding: 8px 20px;
+    background-color: white;
+    border-radius: 27px;
     font-family: 'DotGothic16', sans-serif;
   }
 
@@ -217,7 +223,10 @@
 
   .timeline {
     font-size: 60px;
-    color: white;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 41px;
+    background-color: white;
     font-family: 'DotGothic16', sans-serif;
   }
 
@@ -307,6 +316,42 @@
 
 .tweet-delete {
   color: red;
+}
+
+.back {
+  position: fixed;
+}
+
+.back {
+  position: fixed;
+  bottom: 20px;
+}
+
+.tweet-image p {
+  text-align: center;
+  font-size: 40px;
+  padding: 150px 0;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+.back a i {
+  color: white;
+}
+
+.follow-font-color {
+  color: #65b1f3;
+  font-size: 18px;
+  border: solid 3px #65b1f3;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+.user-edit-icon {
+  color: black;
+  font-size: 20px;
+  border: solid 3px black;
+  border-radius: 10px;
+  padding: 5px 15px;
 }
 
 

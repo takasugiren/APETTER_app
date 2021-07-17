@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # 【class_name: "Relationship"】は省略可能
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
-  
+
   def self.looks(word)
     @search_users = User.where("name LIKE?", "%#{word}%")
   end
