@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   def index
     @tag_list = Tag.all
-    @tweets = Tweet.all
+    @tweets = Tweet.where(user_id: [current_user.id, *current_user.following_ids])
   end
 
   def new

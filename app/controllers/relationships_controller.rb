@@ -13,11 +13,11 @@ class RelationshipsController < ApplicationController
   def followings
     @user = User.find(params[:user_id])
     # userモデルで定義したfollowingsを使用
-    @users = user.followings
+    @users = @user.followings
   end
   def followers
     @user = User.find(params[:user_id])
     # userモデルで定義したfollowersを使用
-    @users = user.followers
+    @users = @user.followers
   end
 end

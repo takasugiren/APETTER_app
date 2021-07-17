@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='row justify-content-center'>
-    <h2 class="user-edit">User</h2>
+    <h2 class="user-edit">プロフィール編集</h2>
   </div>
   <div class="row justify-content-center mt-3">
     <div class="user-back col-8">
@@ -12,25 +12,25 @@
         </div>
         <div class="col-4 mt-3 d-flex align-items-end">
           <div>
-            <%= f.label 'ランク帯', class: "mb-1" %>
+            <%= f.label 'ランク帯', class: "mb-1 tags" %>
             <%= f.select :rank, User.ranks.keys, class: "mb-1" %>
           </div>
         </div>
         <div class="col-8 d-flex align-items-end">
-          <%= f.label :ratio, "K/D", class: "mb-1 mr-3" %>
+          <%= f.label :ratio, "K/D", class: "mb-1 mr-3 tags" %>
           <%= f.text_field :ratio %>
         </div>
       </div>
       <div class="form-group mt-3">
-        <%= f.label '名前' %>
+        <%= f.label '名前', class: "tags" %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label '紹介文' %>
+        <%= f.label '紹介文', class: "tags" %>
         <%= f.text_area :profile, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label 'プロフィール画像' %>
+        <%= f.label 'プロフィール画像', class: "tags" %>
         <%= f.attachment_field :profile_image, class: 'form-control-file' %>
       </div>
       <div class="row justify-content-end">
