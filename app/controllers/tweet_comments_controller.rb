@@ -4,6 +4,7 @@ class TweetCommentsController < ApplicationController
     @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
     @tweet_comment.tweet_id = @tweet.id
     @tweet_comment.save
+    @tweet.create_notification_comment!(current_user, @tweet_comment.id)
   end
 
   def destroy
