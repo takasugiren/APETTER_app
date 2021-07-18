@@ -37,18 +37,27 @@
           </div>
         </div>
         <div class="col-2"></div>
-        <div class="col-12 mt-3"><p class="tags">紹介文</p>
-          <div class="profile mt-2">
+        <div class="col-12 flame">
+          <span class="flame-title tags">
+            紹介文
+          </span>
+          <div class="profile">
             <%= @tweet.user.profile %>
           </div>
         </div>
-        <div class="col-3 mt-3"><p class="tags">ランク帯</p>
-          <div class="rank mt-2 text-center">
+        <div class="col-3 flame-sub mt-1">
+          <span class="flame-title tags">
+            ランク帯
+          </span>
+          <div class="text-center">
             <%= @tweet.user.rank %>
           </div>
         </div>
-        <div class="col-2 mt-3 "><p class="tags">K/D</p>
-          <div class="ratio mt-2 text-center">
+        <div class="col-2 mt-1 flame-sub">
+          <span class="flame-title tags">
+            K/D
+          </span>
+          <div class="text-center">
             <%= @tweet.user.ratio %>
           </div>
         </div>

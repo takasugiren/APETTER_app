@@ -36,23 +36,32 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-12 mt-3"><p class="tags">紹介文</p>
-          <div class="profile mt-2">
+        <div class="col-12 flame">
+          <span class="flame-title tags">
+            紹介文
+          </span>
+          <div class="profile">
             <%= @user.profile %>
           </div>
         </div>
-        <div class="col-3 mt-3"><p class="tags">ランク帯</p>
-          <div class="rank mt-2 text-center">
+        <div class="col-3 flame-sub mt-1">
+          <span class="flame-title tags">
+            ランク帯
+          </span>
+          <div class="text-center">
             <%= @user.rank %>
           </div>
         </div>
-        <div class="col-2 mt-3"><p class="tags">K/D</p>
-          <div class="ratio mt-2 text-center">
+        <div class="col-2 mt-1 flame-sub">
+          <span class="flame-title tags">
+            K/D
+          </span>
+          <div class="text-center">
             <%= @user.ratio %>
           </div>
         </div>
         <div class="col-7"></div>
-        <h3 class="col-12 mt-5"><span class="tags ml-2">ツイート</span></h3>
+        <h3 class="col-12 mt-3"><span class="tags ml-2">ツイート</span></h3>
           <% @tweets.each do |tweet| %>
             <div class="col-2 mt-4">
               <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "no_image.jpg", class:"effect" %>
@@ -63,7 +72,7 @@
                 <%= tweet.body %>
               </div>
               <div class="mt-2">
-                <%= attachment_image_tag tweet, :image, size: "540x250" %>
+                <%= attachment_image_tag tweet, :image, size: "540x250", style: "border-radius: 8px;" %>
               </div>
             </div>
             <div class="tweet-created_at mt-4">

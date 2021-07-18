@@ -18,6 +18,11 @@ class User < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
 
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  # 自分からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  # 相手からの通知
+
   def self.looks(word)
     @search_users = User.where("name LIKE?", "%#{word}%")
   end
@@ -39,5 +44,18 @@ class User < ApplicationRecord
   # フォローボタン表示の際の条件分岐にて使用
   def following?(user)
     followings.include?(user)
+  end
+  
+  def create_notification_follow!(current_user)
+    # すでにフォローされているか検索
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
+    # フォローされていない場合のみ、通知レコードを作成
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end
