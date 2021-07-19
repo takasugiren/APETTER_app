@@ -8,7 +8,7 @@
       <div class="row">
         <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
         <div class="col-12">
-          <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "no_image.jpg", class:"effect" %>
+          <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
         </div>
         <div class="col-4 mt-3 d-flex align-items-end">
           <div>
