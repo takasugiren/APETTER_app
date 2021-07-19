@@ -1,7 +1,7 @@
 <div class="row">
 <% @tweet.tweet_comments.each do |tweet_comment| %>
   <div class="comment-image col-1">
-    <%= attachment_image_tag tweet_comment.user, :profile_image, size: "50x50",fallback: "no_image.jpg", class:"effect" %>
+    <%= attachment_image_tag tweet_comment.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class:"effect" %>
   </div>
   <div class="col-11">
     <%= tweet_comment.user.name %>
