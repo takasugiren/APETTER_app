@@ -16,7 +16,7 @@
           <% end %>
         </div>
         <div class="col-4">
-          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "no_image.jpg", class:"effect" %>
+          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
         </div>
         <div class="col-3 mt-5">
           <%= link_to user_followings_path(@tweet.user) do %>
@@ -65,7 +65,7 @@
         <hr width="100%">
         <div class="row">
           <div class="tweet-item col-2">
-            <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "no_image.jpg", class: "effect" %><br>
+            <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
           </div>
           <div class="tweet-item col-2">
             <i class="fas fa-user"> 名前</i>

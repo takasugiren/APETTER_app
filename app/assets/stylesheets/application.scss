@@ -31,14 +31,6 @@
 
   }
 
-  ul {
-    list-style: none;
-  }
-
-  li {
-    font-size: 25px;
-  }
-
   .top {
     color: white;
     font-family: 'Press Start 2P', cursive;
@@ -128,7 +120,7 @@
   }
 
   ul i {
-    color: white;
+    color: black;
   }
 
   h3 {
@@ -378,4 +370,137 @@
   color: #8c8c8c;
 }
 
+.n-circle {
+  position: absolute;
+  padding-left: 171px;
+  top: -18px;
+  color: #00d0ff;
+}
 
+#hm-icon {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 10;
+}
+
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.menu-trigger span:nth-child(1) {
+  top: -5px;
+}
+
+.menu-trigger span:nth-child(2) {
+  top: 15px;
+}
+
+.menu-trigger span:nth-child(3) {
+  bottom: 5px;
+}
+
+.menu-trigger.active span:nth-child(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: black;
+}
+
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-trigger.active span:nth-child(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: black;
+}
+
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #dadada;
+  width: 24%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+  opacity: 0.8;
+}
+
+#sp-menu ul {
+  margin-top: 100px;
+  margin-left: 47px;
+  list-style: none;
+}
+
+#sp-menu li {
+  text-align: left;
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+#search-wrap {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+}
+
+#search-text {
+  -webkit-appearance: none;
+  width: 60px;
+  height: 60px;
+  padding: 33px;
+  border: none;
+  background: white url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg) no-repeat 21px center;
+  background-size: 25px 25px;
+  transition: all 0.5s;
+  outline: none;
+  border-radius: 33px;
+  cursor: pointer;
+}
+
+#search-text:focus {
+  width: 250px;
+  padding: 20px 0 20px 60px;
+  box-shadow: 0 2px rgba(6,0,1,.26);
+}
+
+.select-tag{
+  height: 44px;
+  padding: 0px 20px;
+  border-radius: 22px;
+  margin-right: 10px;
+}
+
+.fa-stack {
+  font-size: 0.5em;
+}
+
+#bell-icon {
+  vertical-align: middle;
+  left: -6px;
+}
+
+.n-bell {
+  top: -3px;
+}

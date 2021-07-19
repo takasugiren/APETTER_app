@@ -64,7 +64,7 @@
         <h3 class="col-12 mt-3"><span class="tags ml-2">ツイート</span></h3>
           <% @tweets.each do |tweet| %>
             <div class="col-2 mt-4">
-              <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "no_image.jpg", class:"effect" %>
+              <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class:"effect" %>
             </div>
             <div class="col-6 mt-4">
               <%= tweet.user.name %>
