@@ -3,6 +3,21 @@
   <% if notifications.exists? %>
     <%= render @notifications %>
   <% else %>
-  <p>通知はありません。</p>
+  <div class="container">
+    <div class="row justify-content-center mt-4">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <div class="tweet-back">
+          <div class="row">
+            <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -21px; margin-top: 0px;" %>
+          </div>
+          <div class="tweet-image">
+            <p>お知らせがありません。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
   <% end %>
 <% end %>

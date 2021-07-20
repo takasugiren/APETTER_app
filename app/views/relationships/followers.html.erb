@@ -1,13 +1,13 @@
 <% if @users.exists? %>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="tag-search-title"><%= @user.name %>さんのフォロワー <%= @user.followers.count %></div>
+    <div class="tag-search-title"><%= @user.name %> フォロワー <strong><%= @user.followers.count %></strong></div>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-1"></div>
     <div class="col-10">
       <div class="tweet-back">
-          <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -35px; margin-top: 2px;" %>
         <div class="tweet-image">
           <% @users.each do |user| %>
           <div class="row mb-3 tweet-shadow">
@@ -73,13 +73,13 @@
 <% else %>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="tag-search-title"><%= @user.name %>さんのフォロワー <%= @user.followings.count %></div>
+    <div class="tag-search-title"><%= @user.name %> フォロワー <%= @user.followings.count %></div>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-1"></div>
     <div class="col-10">
       <div class="tweet-back">
-          <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -35px; margin-top: 1px;" %>
         <div class="tweet-image">
           <p>まだフォローされていません。</p>
         </div>
