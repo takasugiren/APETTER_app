@@ -1,19 +1,14 @@
 <header>
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <% if user_signed_in? %>
-      <div class="collapse navbar-collapse mb-5">
-        <div id="hm-icon">
-          <a class="menu-trigger" href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-          </a>
-        </div>
+    <% if user_signed_in? %>
+      <div class="container justify-content-center">
         <div id="sp-menu">
           <ul>
             <li>
               <i class="fas fa-user-circle"></i> <%= link_to "マイページ", user_path(current_user.id), style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+            </li>
+            <li>
+              <i class="fas fa-pen"></i> <%= link_to "新規投稿", new_tweet_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
             </li>
             <li>
               <i class="fas fa-gamepad"></i> <%= link_to "タイムライン", tweets_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
@@ -34,13 +29,23 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="row">
-        <div id="search-wrap" class="text-right">
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div>
+          <%= link_to root_path do %>
+            <img id="logo" src="/assets/logo.png" alt="APETTER">
+          <% end %>
+        </div>
+        <div id="search-wrap" class="d-flex justify-content-end">
           <%= render "layouts/search" %>
         </div>
       </div>
-      <% else %>
+    <% else %>
       <div class="collapse navbar-collapse">
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
@@ -63,7 +68,6 @@
           </ul>
         </div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
   </nav>
 </header>

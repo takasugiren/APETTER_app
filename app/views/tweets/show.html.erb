@@ -6,12 +6,12 @@
     <div class="user-back col-10">
       <div class="row">
         <div class="col-10">
-          <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+          <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -17px; margin-top: -17px;" %>
         </div>
         <div class="col-2 tweet-delete">
           <% if @tweet.user == current_user %>
             <%= link_to tweet_path(@tweet), style: "color: red; text-decoration: none;", method: :delete, data: { confirm: '本当に消しますか？' } do %>
-              <i class="fas fa-trash-alt">ツイート削除</i>
+              ツイート削除 <i class="fas fa-trash-alt"></i>
             <% end %>
           <% end %>
         </div>
@@ -42,7 +42,11 @@
             紹介文
           </span>
           <div class="profile">
-            <%= @tweet.user.profile %>
+            <% if @tweet.user.profile != nil %>
+              <%= @tweet.user.profile %>
+            <% else %>
+              よろしくお願いします。
+            <% end %>
           </div>
         </div>
         <div class="col-3 flame-sub mt-1">
@@ -58,7 +62,11 @@
             K/D
           </span>
           <div class="text-center">
-            <%= @tweet.user.ratio %>
+            <% if @tweet.user.ratio != nil %>
+              <%= @tweet.user.ratio %>
+            <% else %>
+              未登録
+            <% end %>
           </div>
         </div>
         <div class="col-7"></div>
@@ -86,7 +94,13 @@
           <div class="col-2">
             <%= @tweet.user.rank %>
           </div>
-          <div class="col-2"><%= @tweet.user.ratio %></div>
+          <div class="col-2">
+            <% if @tweet.user.ratio != nil %>
+              <%= @tweet.user.ratio %>
+            <% else %>
+              未登録
+            <% end %>
+          </div>
           <div class="col-2"></div>
           <div class="tweet-created_at col-2">
             <div id="favorite-<%= @tweet.id %>">
@@ -125,7 +139,7 @@
           <div class="col-2"></div>
             <div class=" col-10 mt-3">
               <%= form_with(model:[@tweet, @tweet_comment], remote: true) do |f| %>
-                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "form-control" %>
+                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに！", class: "form-control" %>
                 <div class="mt-2">
                   <div class="row justify-content-end">
                   <%= f.submit "送信する", class: "btn btn-outline-primary mr-3" %>

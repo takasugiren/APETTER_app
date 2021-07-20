@@ -1,21 +1,7 @@
 <% if @range == "ユーザー" %>
-  <%= render "tweets/index", users: @search_users %>
+  <%= render "users/index_search", users: @search_users %>
 <% elsif @range == "ツイート" %>
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <%= render "tweets/index_search", tweets: @search_tweets %>
 <% else %>
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <%= render "tweets/index_tag_search", tags: @search_tags %>
 <% end %>

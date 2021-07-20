@@ -6,7 +6,7 @@
     <div class="user-back col-8">
       <%= form_with model:@user, local:true do |f| %>
       <div class="row">
-        <%= link_to "", request.referer, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+        <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -4px; margin-top: -20px;" %>
         <div class="col-12">
           <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
         </div>
@@ -33,9 +33,9 @@
         <%= f.label 'プロフィール画像', class: "tags" %>
         <%= f.attachment_field :profile_image, class: 'form-control-file' %>
       </div>
-      <div class="row justify-content-end">
-        <div class="form-group">
-          <%= f.submit "保存", class: 'btn btn-outline-info mr-5' %>
+      <div class="row justify-content-center">
+        <div class="form-group col-5 mt-5">
+          <%= f.submit "保存", class: 'btn btn-block btn-outline-info' %>
         </div>
       </div>
       <% end %>
