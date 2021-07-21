@@ -36,3 +36,22 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+const typing = (element, sentence) => {
+  [...sentence].forEach((character, index) => {
+    setTimeout(() => {
+      document.querySelector(element).textContent += character;
+    }, 100 * ++index);
+  });
+}
+
+typing('#typing', 'APEX専用のSNSです。');
+
+const typingsub = (element, sentence) => {
+  [...sentence].forEach((character, index) => {
+    setTimeout(() => {
+      document.querySelector(element).textContent += character;
+    }, 100 * ++index);
+  });
+}
+
+typingsub('#typingsub', 'カジュアルやランク、アリーナを一緒にプレイする仲間を見つける事ができるアプリケーションです。');
