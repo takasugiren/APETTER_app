@@ -37,7 +37,7 @@
   .top {
     color: white;
     font-family: 'Press Start 2P', cursive;
-    font-size: 170px;
+    font-size: 150px;
   }
 
   .guest-login {
@@ -58,12 +58,21 @@
 
   .logo-sub-sub {
     color: white;
+    margin-top: 22px;
     font-size: 50px;
   }
 
   .description {
-    color: white;
-    font-size: 30px;
+    background-image: image-url("logo2.png");
+    background-size: 100% 100%;
+    padding: 50px 0;
+  }
+
+  .description div {
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 30px;
+    padding: 0 37px;
+    height: 175px;
   }
 
   .login {
@@ -538,4 +547,42 @@
 .back a i {
     color: white;
     font-size: 50px;
+}
+
+#potal {
+  height: 150px;
+  margin-right: -25px;
+  margin-top: -21px;
+}
+
+#logo-top {
+  height: 208px;
+  margin-top: -98px;
+}
+
+#typing,
+#typingsub {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin-top: 28px;
+
+  &:after {
+    content: '';
+    border-right: 1px solid;
+    animation: flashing 1s linear infinite;
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+}
+
+#logo-top2 {
+  height: 150px;
+  margin-top: -229px;
+  margin-left: -21px;
+  transform: rotate(32deg);
 }
