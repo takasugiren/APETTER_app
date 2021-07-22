@@ -63,8 +63,6 @@
   }
 
   .description {
-    background-image: image-url("logo2.png");
-    background-size: 100% 100%;
     padding: 50px 0;
   }
 
@@ -73,6 +71,7 @@
     border-radius: 30px;
     padding: 0 37px;
     height: 175px;
+    margin-top: -354px;
   }
 
   .login {
@@ -99,9 +98,6 @@
 
   .effect {
     border-radius: 50%;
-    opacity: 1;
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
   }
 
   .tweet-image {
@@ -110,7 +106,7 @@
 
   .user-back {
     background-color: white;
-    padding: 30px 30px;
+    padding: 20px 30px;
     border-radius: 8px;
   }
 
@@ -169,6 +165,10 @@
 
   .tweet-item {
     height: 30px;
+  }
+
+  .tweet-item-fc {
+    text-align: right;
   }
 
   .right-align {
@@ -306,6 +306,7 @@
 
 .tweet-delete {
   color: red;
+  text-align: right;
 }
 
 .back {
@@ -317,12 +318,12 @@
   bottom: 20px;
 }
 
-.tweet-image p {
-  text-align: center;
-  font-size: 40px;
-  padding: 150px 0;
-  font-family: 'DotGothic16', sans-serif;
-}
+// .tweet-image p {
+//   text-align: center;
+//   font-size: 40px;
+//   padding: 150px 0;
+//   font-family: 'DotGothic16', sans-serif;
+// }
 
 .back a i {
   color: white;
@@ -544,6 +545,12 @@
   margin-top: 20px;
 }
 
+#logo2 {
+  height: 318px;
+  margin-top: 78px;
+}
+
+
 .back a i {
     color: white;
     font-size: 50px;
@@ -563,6 +570,7 @@
 #typing,
 #typingsub {
   font-size: 2rem;
+  font-family: 'DotGothic16', sans-serif;
   color: white;
   text-align: center;
   margin-top: 28px;
@@ -585,4 +593,242 @@
   margin-top: -229px;
   margin-left: -21px;
   transform: rotate(32deg);
+}
+
+@media screen and (max-width: 425px) {
+// top
+  header {
+    width: 100%;
+    height: 100px;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  #logo-top {
+    height: 59px;
+    margin-top: -29px;
+  }
+
+  .top {
+    font-size: 43px;
+    margin-top: 84px;
+  }
+
+  #logo-top2 {
+    height: 50px;
+    margin-top: -71px;
+    margin-left: -4px;
+  }
+
+  #potal {
+    height: 65px;
+    margin-right: -9px;
+    margin-top: -10px;
+  }
+
+  .logo-sub-sub {
+    margin-top: 125px;
+    font-size: 21px;
+  }
+
+  .logo-sub {
+    font-size: 23px;
+    margin-top: 105px;
+  }
+
+  #logo2 {
+    height: 122px;
+    margin-top: 109px;
+    transform: rotate( 0.3deg);
+  }
+
+  #hm-icon {
+    left: 20px;
+    top: 20px;
+    z-index: 10;
+  }
+
+  #typing, #typingsub {
+    font-size: 14px;
+    margin-top: 13px;
+  }
+
+  .description div {
+    padding: 0 6px;
+    height: 99px;
+    width: 300px;
+    margin-top: -220px;
+    margin-left: -46px;
+  }
+// top end
+
+//header
+  .menu-trigger span:nth-child(1) {
+    top: -7px;
+  }
+
+  .menu-trigger span:nth-child(2) {
+    top: 6px;
+  }
+
+  .menu-trigger span:nth-child(3) {
+    bottom: 21px;
+  }
+
+  .menu-trigger span:nth-child(3)::after {
+    font-size: 14px;
+    color: black;
+  }
+
+  .menu-trigger span {
+    left: -9px;
+    width: 80%;
+    background-color: black;
+  }
+
+  #logo {
+    height: 50px;
+    margin-top: 1px;
+    margin-right: 152px;
+  }
+
+  .select-tag {
+    height: 28px;
+    border-radius: 22px;
+    margin-right: 1px;
+  }
+
+  .select-tag {
+    height: 30px;
+    width: 87px;
+    border-radius: 22px;
+    margin-right: 1px;
+    margin-top: -8px;
+    padding: 0;
+  }
+
+  #search-text {
+    margin-top: -9px;
+    /* -webkit-appearance: none; */
+    margin-right: -7px;
+    width: 138px;
+    height: 30px;
+    left: 0px;
+    padding: 0px;
+    border: none;
+    background: white url(https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg) no-repeat 21px center;
+    background-size: 0px 0px;
+    /* transition: all 0.5s; */
+    /* outline: none; */
+    border-radius: 12px;
+
+  #search-text:focus {
+    width: 138px;
+    padding: 0 4px;
+  }
+
+  }
+//header end
+
+// login sign-up
+  .logo {
+    font-size: 38px;
+  }
+
+  h1, .h1 {
+    font-size: 1.5rem;
+  }
+// login sign-up end
+
+// tweets index
+  .tweet-images {
+    height: 330px;
+    width: 254px;
+  }
+
+  .timeline {
+    font-size: 29px;
+  }
+
+  .side {
+    padding: 0;
+    width: 0;
+  }
+
+  .tweet-back {
+    padding: 0px 0px;
+    width: 371px;
+    margin-left: -44px;
+  }
+
+  .tweet-image {
+    padding: 10px 22px;
+    width: 371px;
+  }
+
+  .tweet-item {
+    height: 35px;
+    padding: 0;
+  }
+
+  .tweet-item i {
+    font-size: 10px;
+  }
+
+  .effect {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+
+  .tweet-item-sub {
+    font-size: 10px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .tweet-created_at {
+    font-size: 10px;
+    padding: 0;
+  }
+
+  .tweet-item-favorite {
+    font-size: 15px;
+    padding: 0;
+  }
+
+  .tweet-item-favorite p {
+    margin-bottom: 0;
+  }
+
+  .tweet-item-comment {
+    font-size: 12px;
+  }
+
+  .back a i {
+    color: black;
+    font-size: 25px;
+  }
+
+  .tag-design {
+    padding: 1px 5px;
+    font-size: 12px;
+  }
+// tweet index end
+
+//tweet show
+  .browser-back {
+    font-size: 25px;
+    margin-left: -6px;
+    margin-top: 0px;
+  }
+
+  .user-back {
+    margin: 0;
+    padding: 6px 12px;
+  }
+
+//tweet show end
 }
