@@ -2,151 +2,149 @@
   <div class='row justify-content-center'>
     <h2 class="user-edit"><%= @tweet.user.name %> 投稿詳細</h2>
   </div>
-  <div class="row justify-content-center mt-3">
-    <div class="user-back col-10">
+  <div class="user-back col-lg-10 col-xs-12 mx-auto">
+    <div class="row justify-content-center">
+      <div class="col-lg-2 col-xs-2">
+        <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -17px;" %>
+      </div>
+      <div class="col-lg-10 col-xs-10 tweet-delete">
+        <% if @tweet.user == current_user %>
+          <%= link_to tweet_path(@tweet), style: "color: red; text-decoration: none;", method: :delete, data: { confirm: '本当に消しますか？' } do %>
+            ツイート削除 <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-4">
+        <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
+      </div>
+      <div class="col-3 mt-5">
+        <%= link_to user_followings_path(@tweet.user) do %>
+          <i class="fas fa-users follow-font-color"><span class="tags">フォロー中 </span><%= @tweet.user.followings.count %><br></i>
+        <% end %>
+        <div class="user-name mt-5">
+          <%= @tweet.user.name %>
+        </div>
+      </div>
+      <div class="col-3 mt-5">
+        <%= link_to user_followers_path(@tweet.user) do %>
+          <i class="fas fa-users follow-font-color"><span class="tags">フォロワー </span><%= @tweet.user.followers.count %><br></i>
+        <% end %>
+        <div class="mt-5">
+          <% if @tweet.user.id != current_user.id %>
+            <%= render "users/follow_btn", user: @tweet.user %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-2"></div>
+      <div class="col-12 flame">
+        <span class="flame-title tags">
+          紹介文
+        </span>
+        <div class="profile">
+          <% if @tweet.user.profile != nil %>
+            <%= @tweet.user.profile %>
+          <% else %>
+            よろしくお願いします。
+          <% end %>
+        </div>
+      </div>
+      <div class="col-3 flame-sub mt-1">
+        <span class="flame-title tags">
+          ランク帯
+        </span>
+        <div class="text-center">
+          <%= @tweet.user.rank %>
+        </div>
+      </div>
+      <div class="col-2 mt-1 flame-sub">
+        <span class="flame-title tags">
+          K/D
+        </span>
+        <div class="text-center">
+          <% if @tweet.user.ratio != nil %>
+            <%= @tweet.user.ratio %>
+          <% else %>
+            未登録
+          <% end %>
+        </div>
+      </div>
+      <div class="col-7"></div>
+      <hr width="100%">
       <div class="row">
-        <div class="col-10">
-          <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -17px; margin-top: -17px;" %>
+        <div class="tweet-item col-2">
+          <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
         </div>
-        <div class="col-2 tweet-delete">
-          <% if @tweet.user == current_user %>
-            <%= link_to tweet_path(@tweet), style: "color: red; text-decoration: none;", method: :delete, data: { confirm: '本当に消しますか？' } do %>
-              ツイート削除 <i class="fas fa-trash-alt"></i>
-            <% end %>
+        <div class="tweet-item col-2">
+          <i class="fas fa-user"> 名前</i>
+        </div>
+        <div class="tweet-item col-2">
+          <i class="fas fa-medal"> ランク帯</i>
+        </div>
+        <div class="tweet-item col-2">
+          <i class="fas fa-skull"> K/D</i>
+        </div>
+        <div class="tweet-created_at col-4">
+          <%= @tweet.created_at.strftime("%Y年%m月%d日 %H:%M") %>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2">
+          <%= @tweet.user.name %>
+        </div>
+        <div class="col-2">
+          <%= @tweet.user.rank %>
+        </div>
+        <div class="col-2">
+          <% if @tweet.user.ratio != nil %>
+            <%= @tweet.user.ratio %>
+          <% else %>
+            未登録
           <% end %>
         </div>
-        <div class="col-4">
-          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
-        </div>
-        <div class="col-3 mt-5">
-          <%= link_to user_followings_path(@tweet.user) do %>
-            <i class="fas fa-users follow-font-color"><span class="tags">フォロー中 </span><%= @tweet.user.followings.count %><br></i>
-          <% end %>
-          <div class="user-name mt-5">
-            <%= @tweet.user.name %>
+        <div class="col-2"></div>
+        <div class="tweet-created_at col-2">
+          <div id="favorite-<%= @tweet.id %>">
+            <%= render 'tweets/favorites', tweet: @tweet %>
           </div>
+          <i class="far fa-comment-dots">
+            コメント <%= @tweet.tweet_comments.count %>
+          </i>
         </div>
-        <div class="col-3 mt-5">
-          <%= link_to user_followers_path(@tweet.user) do %>
-            <i class="fas fa-users follow-font-color"><span class="tags">フォロワー </span><%= @tweet.user.followers.count %><br></i>
-          <% end %>
-          <div class="mt-5">
-            <% if @tweet.user.id != current_user.id %>
-              <%= render "users/follow_btn", user: @tweet.user %>
+        <div class="col-2"></div>
+        <div class="col-10">
+          <%= @tweet.body %>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-10 mt-2">
+          <div class="tags">
+            <% @tweet.tags.each do |tag| %>
+              <%= link_to tag_tweets_path(tag_id: tag.id), style: "text-decoration: none;" do %>
+              <span class="tag-design"><i class="fas fa-tags fa-xs"></i> <%= tag.tag_name %></span>
+              <% end %>
             <% end %>
           </div>
         </div>
         <div class="col-2"></div>
-        <div class="col-12 flame">
-          <span class="flame-title tags">
-            紹介文
-          </span>
-          <div class="profile">
-            <% if @tweet.user.profile != nil %>
-              <%= @tweet.user.profile %>
-            <% else %>
-              よろしくお願いします。
-            <% end %>
-          </div>
+        <div class="col-10 mt-2">
+            <%= attachment_image_tag @tweet, :image, size: "740x400", class: "tweet-images", style: "border-radius: 8px;" %>
         </div>
-        <div class="col-3 flame-sub mt-1">
-          <span class="flame-title tags">
-            ランク帯
-          </span>
-          <div class="text-center">
-            <%= @tweet.user.rank %>
-          </div>
+        <div class="col-2"></div>
+        <div class="col-10 mt-3 tags">
+          <i class="far fa-comments">コメント欄</i>
         </div>
-        <div class="col-2 mt-1 flame-sub">
-          <span class="flame-title tags">
-            K/D
-          </span>
-          <div class="text-center">
-            <% if @tweet.user.ratio != nil %>
-              <%= @tweet.user.ratio %>
-            <% else %>
-              未登録
-            <% end %>
-          </div>
+        <div class="col-2"></div>
+        <div id="target_comments" class="col-10 mt-3">
+          <%= render 'tweet_comments/index', tweet: @tweet %>
         </div>
-        <div class="col-7"></div>
-        <hr width="100%">
-        <div class="row">
-          <div class="tweet-item col-2">
-            <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
-          </div>
-          <div class="tweet-item col-2">
-            <i class="fas fa-user"> 名前</i>
-          </div>
-          <div class="tweet-item col-2">
-            <i class="fas fa-medal"> ランク帯</i>
-          </div>
-          <div class="tweet-item col-2">
-            <i class="fas fa-skull"> K/D</i>
-          </div>
-          <div class="tweet-created_at col-4">
-            <%= @tweet.created_at.strftime("%Y年%m月%d日 %H:%M") %>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-2">
-            <%= @tweet.user.name %>
-          </div>
-          <div class="col-2">
-            <%= @tweet.user.rank %>
-          </div>
-          <div class="col-2">
-            <% if @tweet.user.ratio != nil %>
-              <%= @tweet.user.ratio %>
-            <% else %>
-              未登録
-            <% end %>
-          </div>
-          <div class="col-2"></div>
-          <div class="tweet-created_at col-2">
-            <div id="favorite-<%= @tweet.id %>">
-              <%= render 'tweets/favorites', tweet: @tweet %>
-            </div>
-            <i class="far fa-comment-dots">
-              コメント <%= @tweet.tweet_comments.count %>
-            </i>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-10">
-            <%= @tweet.body %>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-10 mt-2">
-            <div class="tags">
-              <% @tweet.tags.each do |tag| %>
-                <%= link_to tag_tweets_path(tag_id: tag.id), style: "text-decoration: none;" do %>
-                <span class="tag-design"><i class="fas fa-tags fa-xs"></i> <%= tag.tag_name %></span>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-10 mt-2">
-              <%= attachment_image_tag @tweet, :image, size: "760x400", style: "border-radius: 8px;" %>
-          </div>
-          <div class="col-2"></div>
-          <div class="col-10 mt-3 tags">
-            <i class="far fa-comments">コメント欄</i>
-          </div>
-          <div class="col-2"></div>
-          <div id="target_comments" class="col-10 mt-3">
-            <%= render 'tweet_comments/index', tweet: @tweet %>
-          </div>
-          <div class="col-2"></div>
-            <div class=" col-10 mt-3">
-              <%= form_with(model:[@tweet, @tweet_comment], remote: true) do |f| %>
-                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに！", class: "form-control" %>
-                <div class="mt-2">
-                  <div class="row justify-content-end">
-                  <%= f.submit "送信する", class: "btn btn-outline-primary mr-3" %>
-                  </div>
+        <div class="col-2"></div>
+          <div class=" col-10 mt-3">
+            <%= form_with(model:[@tweet, @tweet_comment], remote: true) do |f| %>
+              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに！", class: "form-control" %>
+              <div class="mt-2">
+                <div class="row justify-content-end">
+                <%= f.submit "送信する", class: "btn btn-outline-primary mr-3" %>
                 </div>
-              <% end %>
-            </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
