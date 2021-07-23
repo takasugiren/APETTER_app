@@ -86,6 +86,12 @@
     background-color: white;
   }
 
+  .tweet-edit {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
   .new-tweet-back {
     padding: 50px;
   }
@@ -305,8 +311,8 @@
 }
 
 .tweet-delete {
-  color: red;
   text-align: right;
+  margin: 10px 0;
 }
 
 .back {
@@ -348,7 +354,6 @@
 .flame {
   position: relative;
   margin: 2em auto;
-  width: 100%;
   padding: 1em;
   border: 3px solid black;
   border-radius: 8px;
@@ -603,7 +608,7 @@
   }
 
   body {
-    width: 100%;
+    // width: 100%;
   }
 
   #logo-top {
@@ -826,9 +831,88 @@
   }
 
   .user-back {
-    margin: 0;
     padding: 6px 12px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
 
+  .tweet-delete {
+    font-size: 13px;
+  }
+
+  .follow-font-color {
+    font-size: 13px;
+    padding: 2px 15px;
+  }
+
+  .user-name {
+    font-size: 20px;
+  }
+
+  .flame {
+    margin: 1em auto;
+  }
+
+  .flame-sub {
+    margin: 0em 10px;
+    padding: 5px;
+    left: 12px;
+  }
+
+  .follow-btn-r {
+    font-size: 10px;
+  }
+
+  .tweet-created_at {
+    padding-right: 10px;
+  }
+
+  .tweet-show-comments {
+    font-size: 10px;
+    padding: 0;
+  }
+
+  .balloon-index {
+    padding: 0;
+  }
 //tweet show end
+
+//tweet edit
+  .new-tweet {
+    font-size: 2em;
+  }
+
+  .tweet-image-edit {
+    width: 325px;
+  }
+//tweet edit end
+
+//user show
+  .user-show-images {
+    height: 330px;
+    width: 254px;
+  }
+
+  .user-edit-icon {
+    font-size: 13px;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 2px 9px;
+  }
+
+  .side-user-show {
+    padding: 0;
+    width: 0;
+    right: -169px;
+  }
+// user show end
+
+// user edit
+  .effect-user-show {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  }
+// user edit end
+
 }

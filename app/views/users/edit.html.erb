@@ -1,44 +1,42 @@
-<div class='container'>
-  <div class='row justify-content-center'>
-    <h2 class="user-edit">プロフィール編集</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="new-tweet">プロフィール編集</div>
   </div>
-  <div class="row justify-content-center mt-3">
-    <div class="user-back col-8">
+  <div class="tweet-edit mt-5">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: black;" %>
+      </div>
+      <div class="col-12 col-lg-9">
       <%= form_with model:@user, local:true do |f| %>
-      <div class="row">
-        <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -4px; margin-top: -20px;" %>
-        <div class="col-12">
-          <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
+          <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class: "effect-user-show" %>
+        <div class="form-group mt-4">
+          <%= f.label 'ランク帯', class: "mb-1 tags" %>
+          <%= f.select :rank, User.ranks.keys, class: "mb-1" %>
         </div>
-        <div class="col-4 mt-3 d-flex align-items-end">
-          <div>
-            <%= f.label 'ランク帯', class: "mb-1 tags" %>
-            <%= f.select :rank, User.ranks.keys, class: "mb-1" %>
+        <div class="form-group">
+          <%= f.label :ratio, "K/D", class: "mb-1 mr-3 tags" %>
+          <%= f.text_field :ratio, class: 'form-control' %>
+        </div>
+        <div class="form-group mt-3">
+          <%= f.label '名前', class: "tags" %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label '紹介文', class: "tags" %>
+          <%= f.text_area :profile, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'プロフィール画像', class: "tags" %>
+          <%= f.attachment_field :profile_image, class: 'form-control-file' %>
+        </div>
+        <div class="row justify-content-center">
+          <div class="form-group col-5 mt-5">
+            <%= f.submit "保存", class: 'btn btn-block btn-outline-info' %>
           </div>
         </div>
-        <div class="col-8 d-flex align-items-end">
-          <%= f.label :ratio, "K/D", class: "mb-1 mr-3 tags" %>
-          <%= f.text_field :ratio %>
-        </div>
-      </div>
-      <div class="form-group mt-3">
-        <%= f.label '名前', class: "tags" %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label '紹介文', class: "tags" %>
-        <%= f.text_area :profile, class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label 'プロフィール画像', class: "tags" %>
-        <%= f.attachment_field :profile_image, class: 'form-control-file' %>
-      </div>
-      <div class="row justify-content-center">
-        <div class="form-group col-5 mt-5">
-          <%= f.submit "保存", class: 'btn btn-block btn-outline-info' %>
-        </div>
-      </div>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
