@@ -4,52 +4,54 @@
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-12">
-      <div class="tweet-back mx-5">
-        <div class="tweet-image">
-          <table class="table table-hover">
-            <thead>
-              <tr class="table-info">
-                <th></th>
-                <th>名前</th>
-                <th>ランク帯</th>
-                <th>キルレ</th>
-                <th class="col-7">紹介文</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% users.each do |user| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(user) do %>
-                    <%= attachment_image_tag user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
-                  <% end %>
-                </td>
-                <td>
-                  <%= user.name %>
-                </td>
-                <td>
-                  <%= user.rank %>
-                </td>
-                <td>
-                  <% if user.ratio != nil %>
-                    <%= user.ratio %>
-                  <% else %>
-                    未登録
-                  <% end %>
-                </td>
-                <td>
-                  <%= user.profile %>
-                </td>
-                <td>
-                  <% if user.id != current_user.id %>
-                    <%= render "users/follow_btn", user: user %>
-                  <% end %>
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+      <div class="tweet-back mx-1 mx-lg-5">
+        <div class="search-back">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr class="table-info">
+                  <th class="col-1"></th>
+                  <th class="text-nowrap col-1 col-lg-1">名前</th>
+                  <th class="text-nowrap col-2 col-lg-1">ランク帯</th>
+                  <th class="text-nowrap col-2 col-lg-1">キルレ</th>
+                  <th class="text-nowrap col-4 col-lg-6">紹介文</th>
+                  <th class="col-2 col-lg-2"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= link_to user_path(user) do %>
+                      <%= attachment_image_tag user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect-search-index" %><br>
+                    <% end %>
+                  </td>
+                  <td>
+                    <div class="search-td"><%= user.name %></div>
+                  </td>
+                  <td>
+                    <div class="search-td"><%= user.rank %></div>
+                  </td>
+                  <td>
+                    <% if user.ratio != nil %>
+                      <div class="search-td"><%= user.ratio %></div>
+                    <% else %>
+                      <div class="search-td">未登録</div>
+                    <% end %>
+                  </td>
+                  <td>
+                    <div class="search-td"><%= user.profile %></div>
+                  </td>
+                  <td class="d-flex justify-content-center text-nowrap">
+                    <% if user.id != current_user.id %>
+                      <%= render "users/follow_btn", user: user %>
+                    <% end %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

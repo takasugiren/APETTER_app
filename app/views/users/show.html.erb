@@ -42,7 +42,11 @@
             紹介文
           </span>
           <div class="profile">
-            <%= @user.profile %>
+            <% if @user.profile != nil %>
+              <%= @user.profile %>
+            <% else %>
+              よろしくお願いします。
+            <% end %>
           </div>
         </div>
         <div class="col-5 col-lg-3 flame-sub mt-1">
@@ -58,7 +62,11 @@
             K/D
           </span>
           <div class="text-center">
-            <%= @user.ratio %>
+            <% if @user.ratio != nil %>
+              <%= @user.ratio %>
+            <% else %>
+              未登録
+            <% end %>
           </div>
         </div>
         <h3 class="col-12 mt-3"><span class="tags ml-2">ツイート</span></h3>

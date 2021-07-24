@@ -6,7 +6,7 @@
     <div class="col-1"></div>
     <div class="col-10">
       <div class="tweet-back">
-          <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
+        <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-top: 4px; margin-left: 4px;" %>
         <div class="tweet-image">
           <% @tweets.each do |tweet| %>
           <div class="row mb-3 tweet-shadow">
@@ -28,13 +28,15 @@
               <%= tweet.created_at.strftime("%Y年%m月%d日 %H:%M") %>
             </div>
             <div class="col-2"></div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= tweet.user.name %>
             </div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= tweet.user.rank %>
             </div>
-            <div class="col-2"><%= tweet.user.ratio %></div>
+            <div class="col-2 tweet-item-sub">
+              <%= tweet.user.ratio %>
+            </div>
             <div class="col-4">
               <% if tweet.user.id != current_user.id %>
                 <div class="tweet-created_at"><%= render "users/follow_btn", user: tweet.user %></div>

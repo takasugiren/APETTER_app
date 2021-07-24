@@ -4,58 +4,60 @@
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-12">
-      <div class="tweet-back mx-5">
-        <div class="tweet-image">
-          <table class="table table-hover">
-            <thead>
-              <tr class="table-info">
-                <th></th>
-                <th>名前</th>
-                <th>タグ</th>
-                <th class="col-6">ツイート内容</th>
-                <th>いいね数</th>
-                <th>コメント数</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% tweets.each do |tweet| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(tweet.user) do %>
-                    <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
-                  <% end %>
-                </td>
-                <td>
-                  <%= tweet.user.name %>
-                </td>
-                <td>
-                  <% tweet.tags.each do |tag| %>
-                    <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-                      #<%= tag.tag_name %><br>
+      <div class="tweet-back mx-1 mx-lg-5">
+        <div class="search-back">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr class="table-info">
+                  <th></th>
+                  <th class="text-nowrap">名前</th>
+                  <th class="text-nowrap">タグ</th>
+                  <th class="text-nowrap col-6">ツイート内容</th>
+                  <th class="text-nowrap">いいね数</th>
+                  <th class="text-nowrap">コメント数</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% tweets.each do |tweet| %>
+                <tr>
+                  <td>
+                    <%= link_to user_path(tweet.user) do %>
+                      <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
                     <% end %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to tweet_path(tweet) do %>
-                    <%= tweet.body %>
-                  <% end %>
-                </td>
-                <td class="text-center">
-                  <%= tweet.favorites.count %>
-                </td>
-                <td class="text-center">
-                  <%= tweet.tweet_comments.count %>
-                </td>
-                <td class="d-flex justify-content-center">
-                  <% if tweet.user.id != current_user.id %>
-                    <%= render "users/follow_btn", user: tweet.user %>
-                  <% end %>
-                </td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+                  </td>
+                  <td>
+                    <div class="search-td"><%= tweet.user.name %></div>
+                  </td>
+                  <td>
+                    <% tweet.tags.each do |tag| %>
+                      <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+                        <div class="search-td">#<%= tag.tag_name %></div>
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to tweet_path(tweet) do %>
+                      <%= tweet.body %>
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <%= tweet.favorites.count %>
+                  </td>
+                  <td class="text-center">
+                    <%= tweet.tweet_comments.count %>
+                  </td>
+                  <td class="d-flex justify-content-center text-nowrap">
+                    <% if tweet.user.id != current_user.id %>
+                      <%= render "users/follow_btn", user: tweet.user %>
+                    <% end %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
