@@ -7,7 +7,7 @@
           <div><%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -8px;" %></div>
         </div>
         <div class="col-2 col-lg-4">
-          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class:"effect" %>
+          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class: "effect" %>
         </div>
         <div class="col-5 col-lg-3 mt-2 mt-lg-5">
           <%= link_to user_followings_path(@tweet.user) do %>
@@ -132,9 +132,7 @@
         </div>
         <div class="col-2"></div>
         <div id="target_comments" class="col-10 mt-3">
-          <div class="row">
-            <%= render 'tweet_comments/index', tweet: @tweet %>
-          </div>
+          <%= render 'tweet_comments/index', tweet: @tweet %>
         </div>
         <div class="col-2"></div>
         <div class=" col-10 mt-3">
