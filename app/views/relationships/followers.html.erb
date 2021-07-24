@@ -16,31 +16,31 @@
                 <%= attachment_image_tag user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
               <% end %>
             </div>
-            <div class="tweet-item col-2">
+            <div class="tweet-item text-center col-2">
               <i class="fas fa-user"> 名前</i>
             </div>
             <div class="tweet-item col-2">
               <i class="fas fa-medal"> ランク帯</i>
             </div>
-            <div class="tweet-item col-2">
+            <div class="tweet-item text-center col-2">
               <i class="fas fa-skull"> K/D</i>
             </div>
             <div class="col-4"></div>
             <div class="col-2"></div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= user.name %>
             </div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= user.rank %>
             </div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <% if user.ratio != nil %>
                 <%= user.ratio %>
               <% else %>
                 未登録
               <% end %>
             </div>
-            <div class="col-4">
+            <div class="col-4 tweet-item-sub">
               <% if user.id != current_user.id %>
                 <div class="tweet-created_at"><%= render "users/follow_btn", user: user %></div>
               <% end %>
@@ -64,7 +64,7 @@
     <div class="col-1">
       <span class="back">
         <a href="#">
-          <i class="fas fa-chevron-circle-up fa-2x"></i>
+          <i class="fas fa-chevron-circle-up top-up fa-2x"></i>
         </a>
       </span>
     </div>
@@ -72,20 +72,18 @@
 </div>
 <% else %>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="tag-search-title"><%= @user.name %> フォロワー <%= @user.followings.count %></div>
-  </div>
   <div class="row justify-content-center mt-4">
-    <div class="col-1"></div>
-    <div class="col-10">
-      <div class="tweet-back">
-          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -35px; margin-top: 1px;" %>
-        <div class="tweet-image">
-          <p>まだフォローされていません。</p>
+    <div class="tag-search-title"><%= @user.name %> フォロワー <%= @user.followings.count %></div>
+    <div class="col-12 col-lg-10">
+      <div class="white-back">
+        <div class="col-12">
+          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-top: 10px;" %>
+        </div>
+        <div class="nomember-back">
+          <p class="nomember-followers">まだフォローされていません。</p>
         </div>
       </div>
     </div>
-    <div class="col-1"></div>
   </div>
 </div>
 <% end %>
