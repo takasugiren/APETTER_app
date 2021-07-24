@@ -626,6 +626,34 @@
   z-index: -1;
 }
 
+.pagination>li>a {
+  border: none;
+  color: #696969;
+  margin: 0 5px;
+}
+
+.pagination>.active>a {
+  border-radius: 15px;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
+
+.page-item.active .page-link {
+    background-color: #a92a2a;
+    border-color: #a92a2a;
+}
+
+.page-item:first-child .page-link {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.page-item:last-child .page-link {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
 @media screen and (max-width: 425px) {
 // top
   header {
