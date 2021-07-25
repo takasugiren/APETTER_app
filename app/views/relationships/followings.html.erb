@@ -4,10 +4,12 @@
     <div class="tag-search-title"><%= @user.name %> フォロー中 <strong><%= @user.followings.count %></strong></div>
   </div>
   <div class="row justify-content-center mt-4">
-    <div class="col-1"></div>
+    <div class="col-1 side"></div>
     <div class="col-10">
       <div class="tweet-back">
-          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -36px; margin-top: 1px;" %>
+        <div class="col-12 col-lg-12">
+          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-top: 5px;" %>
+        </div>
         <div class="tweet-image">
           <% @users.each do |user| %>
           <div class="row mb-3 tweet-shadow">
@@ -27,20 +29,20 @@
             </div>
             <div class="col-4"></div>
             <div class="col-2"></div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= user.name %>
             </div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <%= user.rank %>
             </div>
-            <div class="col-2">
+            <div class="col-2 tweet-item-sub">
               <% if user.ratio != nil %>
                 <%= user.ratio %>
               <% else %>
                 未登録
               <% end %>
             </div>
-            <div class="col-4">
+            <div class="col-4 tweet-item-sub">
               <% if user.id != current_user.id %>
                 <div class="tweet-created_at"><%= render "users/follow_btn", user: user %></div>
               <% end %>
@@ -59,9 +61,10 @@
           </div>
           <% end %>
         </div>
+        <div class="row justify-content-center my-4"><%= paginate @users %></div>
       </div>
     </div>
-    <div class="col-1">
+    <div class="col-1 side">
       <span class="back">
         <a href="#">
           <i class="fas fa-chevron-circle-up fa-2x"></i>

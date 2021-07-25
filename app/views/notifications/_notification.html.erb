@@ -2,11 +2,11 @@
 <% visited = notification.visited %>
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-8 mx-auto notification-index">
+    <div class="col-12 col-lg-10 mx-auto notification-index">
       <div class="notification-index">
         <span class="notification-font">
           <%= link_to user_path(visitor) do %>
-            <%= attachment_image_tag visitor, :profile_image, size: "30x30",fallback: "guest-icon.jpg", class: "effect" %>
+            <%= attachment_image_tag visitor, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "notification-effect" %>
             <strong>
               <%= visitor.name %>
             </strong>
@@ -14,24 +14,24 @@
           <span>さんが</span>
         <% case notification.action %>
         <% when 'follow' then %>
-          あなたをフォローしました
+          <span>あなたをフォローしました</span>
         <% when 'like' then %>
           <%= link_to 'あなたの投稿', notification.tweet, style: "font-weight: bold;" %>
-          <span>いいねしました</span>
+          <span class="notification-font">いいねしました</span>
         <% when 'comment' then %>
           <% if notification.tweet.user_id == visited.id %>
             <%= link_to "あなたの投稿", notification.tweet, style: "font-weight: bold;" %>
           <% else %>
             <span>
               <%= link_to tweet_path(notification.tweet) do %>
-                <%= attachment_image_tag notification.tweet.user, :profile_image, size: "30x30",fallback: "guest-icon.jpg", class: "effect" %>
+                <%= attachment_image_tag notification.tweet.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "notification-effect" %>
                 <strong>
                   <%= notification.tweet.user.name + 'さんの投稿' %>
                 </strong>
               <% end %>
             </span>
           <% end %>
-          にコメントしました
+          <span>にコメントしました</span>
           <p class="my-2 notification-comment"><%= TweetComment.find_by(id: notification.tweet_comment_id)&.comment %></p>
         <% end %>
         <div class="tweet-created_at">

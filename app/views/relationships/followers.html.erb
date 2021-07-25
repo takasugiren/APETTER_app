@@ -7,7 +7,9 @@
     <div class="col-1"></div>
     <div class="col-10">
       <div class="tweet-back">
-          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -35px; margin-top: 2px;" %>
+        <div class="col-12 col-lg-12">
+          <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-top: 5px;" %>
+        </div>  
         <div class="tweet-image">
           <% @users.each do |user| %>
           <div class="row mb-3 tweet-shadow">
@@ -59,6 +61,7 @@
           </div>
           <% end %>
         </div>
+        <div class="row justify-content-center my-4"><%= paginate @users %></div>
       </div>
     </div>
     <div class="col-1">
