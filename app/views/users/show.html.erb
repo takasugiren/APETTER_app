@@ -23,7 +23,7 @@
           <%= link_to user_followings_path(@user) do %>
             <span class="tags follow-font-color">フォロー中 <%= @user.followings.count %></span><br>
           <% end %>
-          <div class="user-name mt-5">
+          <div class="user-name mt-2 mt-lg-5">
             <%= @user.name %>
           </div>
         </div>
@@ -71,8 +71,8 @@
         </div>
         <h3 class="col-12 mt-3"><span class="tags ml-2">ツイート</span></h3>
           <% @tweets.each do |tweet| %>
-            <div class="col-2 col-lg-2 mt-4 tweet-item text-center">
-              <%= attachment_image_tag tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class:"effect" %>
+            <div class="col-2 col-lg-2 mt-lg-4 tweet-item text-center">
+              <%= attachment_image_tag tweet.user, :profile_image, size: "60x60",fallback: "guest-icon.jpg", class:"effect" %>
             </div>
             <div class="col-5 col-lg-5 mt-lg-4">
               <%= tweet.user.name %>
@@ -98,8 +98,10 @@
             <div class="col-10 col-lg-10 mt-2">
               <%= attachment_image_tag tweet, :image, size: "610x250", class: "user-show-images", style: "border-radius: 8px;" %>
             </div>
+            <hr width="100%">
           <% end %>
           </div>
+          <div class="row justify-content-center my-4"><%= paginate @tweets %></div>
         </div>
         <div class="col-1 side-user-show">
           <span class="back">
