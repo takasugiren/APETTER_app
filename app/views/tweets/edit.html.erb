@@ -11,6 +11,7 @@
         <div class="mt-5">
           <%= attachment_image_tag @tweet, :image, size: "810x400", class: "tweet-image-edit", style: "border-radius: 8px;" %>
         </div>
+        <%= render 'layouts/errors', obj: @tweet %>
         <%= form_with model: @tweet, local:true do |f| %>
           <div class="form-group mt-5">
             <h4 class="mt-3">ツイート内容</h4>

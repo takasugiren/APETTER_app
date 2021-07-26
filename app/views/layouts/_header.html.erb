@@ -5,13 +5,13 @@
         <div id="sp-menu">
           <ul>
             <li>
-              <i class="fas fa-user-circle"></i> <%= link_to "マイページ", user_path(current_user.id), style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-user-circle"></i> <%= link_to "マイページ", user_path(current_user.id), style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <i class="fas fa-pen"></i> <%= link_to "新規投稿", new_tweet_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-pen"></i> <%= link_to "新規投稿", new_tweet_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <i class="fas fa-gamepad"></i> <%= link_to "タイムライン", tweets_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-gamepad"></i> <%= link_to "タイムライン", tweets_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
             <li>
               <% if unchecked_notifications.any? %>
@@ -19,13 +19,13 @@
                   <i id="bell-icon" class="fas fa-bell n-bell fa-stack-2x"></i>
                   <i id="bell-icon" class="fas fa-circle n-circle fa-stack-1x"></i>
                 </span>
-                <%= link_to "お知らせ", notifications_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+                <%= link_to "お知らせ", notifications_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
               <% else %>
-                <i class="fas fa-bell"></i> <%= link_to "お知らせ", notifications_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+                <i class="fas fa-bell"></i> <%= link_to "お知らせ", notifications_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
               <% end %>
             </li>
             <li>
-              <i class="fas fa-sign-out-alt"></i> <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-sign-out-alt"></i> <%= link_to "ログアウト", destroy_user_session_path, method: :delete, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
           </ul>
         </div>
@@ -37,7 +37,7 @@
           </a>
         </div>
         <div>
-          <%= link_to root_path do %>
+          <%= link_to root_path, data: {"turbolinks" => false} do %>
             <img id="logo" src="<%= asset_path('logo.png') %>" alt="APETTER">
           <% end %>
         </div>
@@ -57,13 +57,13 @@
         <div id="sp-menu">
           <ul>
             <li>
-              <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <i class="fas fa-user-check"></i><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-user-check"></i><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
             <li>
-              <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;" %>
+              <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
             </li>
           </ul>
         </div>

@@ -8,6 +8,7 @@
         <%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444;" %>
       </div>
       <div class="col-12 col-lg-9">
+        <%= render 'layouts/errors', obj: @tweet %>
         <%= form_with model: @tweet, local:true do |f| %>
           <div class="form-group mt-5">
             <h4 class="mt-3">ツイート内容</h4>

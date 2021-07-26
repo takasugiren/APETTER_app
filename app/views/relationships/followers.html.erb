@@ -3,13 +3,13 @@
   <div class="row justify-content-center">
     <div class="tag-search-title"><%= @user.name %> フォロワー <strong><%= @user.followers.count %></strong></div>
   </div>
-  <div class="row justify-content-center mt-4">
+  <div class="row justify-content-center">
     <div class="col-1"></div>
     <div class="col-10">
       <div class="tweet-back">
         <div class="col-12 col-lg-12">
           <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-top: 5px;" %>
-        </div>  
+        </div>
         <div class="tweet-image">
           <% @users.each do |user| %>
           <div class="row mb-3 tweet-shadow">

@@ -31,7 +31,7 @@ class TweetsController < ApplicationController
       @tweet.save_tag(tag_list)
       redirect_to tweets_path
     else
-      redirect_back(fallback_location: root_path)
+      render 'new'
     end
   end
 
@@ -41,8 +41,11 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    @tweet.update(tweet_params)
-    redirect_to tweet_path(@tweet)
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path(@tweet)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
