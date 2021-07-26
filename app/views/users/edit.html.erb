@@ -8,6 +8,7 @@
         <%= link_to "", user_path(@user), class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: black;" %>
       </div>
       <div class="col-12 col-lg-9">
+      <%= render 'layouts/errors', obj: @user %>
       <%= form_with model:@user, local:true do |f| %>
           <%= attachment_image_tag @user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class: "effect-user-show" %>
         <div class="form-group mt-4">

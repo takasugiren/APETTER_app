@@ -23,6 +23,9 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   # 相手からの通知
 
+  validates :name, presence: true, length: {maximum: 30, munimum: 2}, uniqueness: true
+  validates :profile, length: {maximum: 50, munimum: 2}
+
   def self.looks(word)
     @search_users = User.where("name LIKE?", "%#{word}%")
   end
@@ -45,7 +48,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
+
   def create_notification_follow!(current_user)
     # すでにフォローされているか検索
     temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ?", current_user.id, id, 'follow'])
