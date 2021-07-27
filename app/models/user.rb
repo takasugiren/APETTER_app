@@ -23,8 +23,8 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   # 相手からの通知
 
-  validates :name, presence: true, length: {maximum: 30, munimum: 2}, uniqueness: true
-  validates :profile, length: {maximum: 50, munimum: 2}
+  validates :name, presence: true, length: { maximum: 30, munimum: 2 }, uniqueness: true
+  validates :profile, length: { maximum: 500 }
 
   def self.looks(word)
     @search_users = User.where("name LIKE?", "%#{word}%")

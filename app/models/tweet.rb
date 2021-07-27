@@ -10,7 +10,7 @@ class Tweet < ApplicationRecord
   has_many :notifications, dependent: :destroy
   attachment :image
 
-  validates :body, presence: true, length: {maximum: 300}
+  validates :body, presence: true, length: { maximum: 300 }
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -22,7 +22,7 @@ class Tweet < ApplicationRecord
 
   def save_tag(sent_tags)
     # ツイートのcreateアクションにて保存した＠tweetに紐付いているタグが存在する場合、タグの名前を配列として全て取得する
-    current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+    current_tags = tags.pluck(:tag_name) unless tags.nil?
     # 取得した@tweetの存在するタグから、送信されてきたタグを除いたタグをold_tagsとする
     old_tags = current_tags - sent_tags
     # 送信されてきたタグから、現在存在するタグを除いたタグをnew_tagsとする
@@ -30,13 +30,13 @@ class Tweet < ApplicationRecord
 
     # 古いタグの削除
     old_tags.each do |old|
-      self.tags.delete Tag.find_by(tag_name: old)
+      tags.delete Tag.find_by(tag_name: old)
     end
 
     # 新しいタグを保存
     new_tags.each do |new|
       new_tag = Tag.find_or_create_by(tag_name: new)
-      self.tags << new_tag
+      tags << new_tag
     end
   end
 

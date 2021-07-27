@@ -388,6 +388,10 @@
   padding: 5px 15px;
 }
 
+.effect-user-show {
+    border-radius: 50%;
+  }
+
 .flame {
   position: relative;
   margin: 2em auto;
@@ -1028,7 +1032,6 @@
 
 // user edit
   .effect-user-show {
-    border-radius: 50%;
     height: 100px;
     width: 100px;
   }
