@@ -1,8 +1,8 @@
 class TweetsController < ApplicationController
   def index
     @tag_list = Tag.all
-     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(10)
-     # where(user_id: [current_user.id, *current_user.following_ids])
+    @tweets = Tweet.order("created_at DESC").page(params[:page]).per(10)
+    # where(user_id: [current_user.id, *current_user.following_ids])
   end
 
   def new
@@ -16,8 +16,8 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tag = Tag.find(params[:tag_id])  #参照したタグを取得
-    @tweets = @tag.tweets.all         #参照したタグに紐付けられた投稿を全て表示
+    @tag = Tag.find(params[:tag_id])  # 参照したタグを取得
+    @tweets = @tag.tweets.all         # 参照したタグに紐付けられた投稿を全て表示
   end
 
   def create

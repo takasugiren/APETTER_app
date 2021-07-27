@@ -82,7 +82,9 @@
             </div>
             <div class="col-2 col-lg-2"></div>
             <div class="col-10 col-lg-10">
-              <%= tweet.body %>
+              <%= link_to tweet_path(tweet),style: "color: black;" do %>
+                <%= tweet.body %>
+              <% end %>
             </div>
             <div class="col-2 col-lg-2"></div>
             <div class="col-10 col-lg-10 mt-2">
@@ -96,7 +98,9 @@
             </div>
             <div class="col-2 col-lg-2"></div>
             <div class="col-10 col-lg-10 mt-2">
-              <%= attachment_image_tag tweet, :image, size: "610x250", class: "user-show-images", style: "border-radius: 8px;" %>
+              <%= link_to tweet_path(tweet) do %>
+                <%= attachment_image_tag tweet, :image, size: "610x400", class: "user-show-images", style: "border-radius: 8px;" %>
+              <% end %>
             </div>
             <hr width="100%">
           <% end %>

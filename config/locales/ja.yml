@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        rank: ランク
+        ratio: キルレ
+        profile: 紹介文
+      tweet:
+        body: ツイート内容
+      tag:
+        tag_name: タグ名
+      tweet_comment: コメント
