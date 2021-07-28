@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="tag-search-title">タグが <span class="tags">"<%= @tag.tag_name %>"</span> の投稿一覧</div>
+    <div class="tag-search-title"><i class="fas fa-tags fa-xs"></i> <span class="tags"><%= @tag.tag_name %></span> の投稿一覧</div>
   </div>
   <div class="row justify-content-center mt-4">
     <div class="col-1"></div>
@@ -37,7 +37,7 @@
             <div class="col-2 tweet-item-sub">
               <%= tweet.user.ratio %>
             </div>
-            <div class="col-4">
+            <div class="col-4 tweet-item-sub">
               <% if tweet.user.id != current_user.id %>
                 <div class="tweet-created_at"><%= render "users/follow_btn", user: tweet.user %></div>
               <% end %>
@@ -59,6 +59,7 @@
           </div>
           <% end %>
         </div>
+        <div class="row justify-content-center my-4"><%= paginate @tweets %></div>
       </div>
     </div>
     <div class="col-1"></div>

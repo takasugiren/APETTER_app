@@ -8,7 +8,7 @@
       <span class="ml-3"><%= tweet_comment.created_at.strftime("%Y年%m月%d日 %H:%M") %></span>
       <% if tweet_comment.user == current_user %>
         <span class="ml-4">
-          <%= link_to "", tweet_tweet_comment_path(tweet_comment.tweet_id, tweet_comment.id), class: "fas fa-trash-alt", style: "color: red;", method: :delete, remote: true %>
+          <%= link_to "", tweet_tweet_comment_path(tweet_comment.tweet_id, tweet_comment.id), class: "fas fa-trash-alt", style: "color: red; font-size: 17px;", method: :delete, data: { confirm: '本当にコメントを消しますか？' }, remote: true %>
         </span>
       <% end %>
     </div>

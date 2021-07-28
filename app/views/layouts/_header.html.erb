@@ -46,27 +46,25 @@
         </div>
       </div>
     <% else %>
-      <div class="collapse navbar-collapse">
-        <div id="hm-icon">
-          <a class="menu-trigger" href="#">
-            <span></span>
-            <span></span>
-            <span></span>
-          </a>
-        </div>
-        <div id="sp-menu">
-          <ul>
-            <li>
-              <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
-            </li>
-            <li>
-              <i class="fas fa-user-check"></i><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
-            </li>
-            <li>
-              <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
-            </li>
-          </ul>
-        </div>
+      <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <div id="sp-menu">
+        <ul>
+          <li>
+            <i class="fas fa-sign-in-alt"></i><%= link_to "ログイン", new_user_session_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
+          </li>
+          <li>
+            <i class="fas fa-user-check"></i><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
+          </li>
+          <li>
+            <i class="fas fa-user-plus"></i><%= link_to "新規登録", new_user_registration_path, style: "text-decoration: none; color: black; font-family: 'DotGothic16', sans-serif;", data: {"turbolinks" => false} %>
+          </li>
+        </ul>
       </div>
     <% end %>
   </nav>
