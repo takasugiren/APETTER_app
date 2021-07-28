@@ -7,7 +7,9 @@
           <div><%= link_to "", tweets_path, class: "browser-back far fa-arrow-alt-circle-left", style: "text-decoration: none; color: #444444; margin-left: -8px;" %></div>
         </div>
         <div class="col-2 col-lg-4">
-          <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class: "effect" %>
+          <%= link_to user_path(@tweet.user) do %>
+            <%= attachment_image_tag @tweet.user, :profile_image, size: "200x200",fallback: "guest-icon.jpg", class: "effect" %>
+          <% end %>
         </div>
         <div class="col-5 col-lg-3 mt-2 mt-lg-5">
           <%= link_to user_followings_path(@tweet.user) do %>
@@ -72,7 +74,9 @@
           <% end %>
         </div>
         <div class="tweet-item col-2 text-center">
-          <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
+          <%= link_to user_path(@tweet.user) do %>
+            <%= attachment_image_tag @tweet.user, :profile_image, size: "100x100",fallback: "guest-icon.jpg", class: "effect" %><br>
+          <% end %>
         </div>
         <div class="tweet-item-name col-2">
           <i class="fas fa-user"> 名前</i>

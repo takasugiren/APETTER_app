@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @tag_list = Tag.all
     @tweets = Tweet.order("created_at DESC").page(params[:page]).per(10)
