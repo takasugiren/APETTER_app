@@ -16,8 +16,8 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tag = Tag.find(params[:tag_id])  # 参照したタグを取得
-    @tweets = @tag.tweets.all         # 参照したタグに紐付けられた投稿を全て表示
+    @tag = Tag.find(params[:tag_id])                    # 参照したタグを取得
+    @tweets = @tag.tweets.page(params[:page]).per(10)   # 参照したタグに紐付けられた投稿を全て表示
   end
 
   def create
