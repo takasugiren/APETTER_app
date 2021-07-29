@@ -108,7 +108,7 @@
           <i class="far fa-comment-dots">
             コメント <%= @tweet.tweet_comments.count %>
           </i>
-          <div id="favorite-<%= @tweet.id %>" class="mt-2">
+          <div id="favorite-<%= @tweet.id %>" class="tweet-item-favorite mt-2">
             <%= render 'tweets/favorites', tweet: @tweet %>
           </div>
         </div>
