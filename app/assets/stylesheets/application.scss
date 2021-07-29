@@ -853,7 +853,11 @@
   }
 
   #sp-menu {
-    width: 87%;
+    width: 80%;
+  }
+
+  #sp-menu ul {
+    margin-left: 0;
   }
 //header end
 
@@ -1038,6 +1042,7 @@
     border: solid 2px black;
     border-radius: 10px;
     padding: 2px 9px;
+    margin-right: 10px;
   }
 
   .side-user-show {
