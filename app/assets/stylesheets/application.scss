@@ -1245,4 +1245,30 @@
     font-size: 13px;
   }
 // tweet index end
+
+// tweet show
+  .balloon::after {
+    left: -6px;
+    top: 3px;
+    border-left: 7px solid #ffffff;
+    border-top: 7px solid #ffffff;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+
+  .balloon::before {
+    left: -6px;
+    top: 10px;
+    border-left: 7px solid #d7ebfe;
+    border-top: 7px solid #d7ebfe;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+
+  .comment-image .effect {
+    height: 45px;
+    width: 45px;
+  }
+
+// tweet show end
 }
