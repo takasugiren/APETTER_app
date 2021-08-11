@@ -1,4 +1,5 @@
 class TweetCommentsController < ApplicationController
+  # コメント作成アクション
   def create
     @tweet = Tweet.find(params[:tweet_id])
     @tweet_comment = current_user.tweet_comments.new(tweet_comment_params)
@@ -6,7 +7,7 @@ class TweetCommentsController < ApplicationController
     @tweet_comment.save
     @tweet.create_notification_comment!(current_user, @tweet_comment.id)
   end
-
+  # コメント削除アクション
   def destroy
     @tweet = Tweet.find(params[:tweet_id])
     @tweet_comment_id = params[:id]
