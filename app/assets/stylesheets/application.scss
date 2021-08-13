@@ -1219,10 +1219,56 @@
   #sp-menu ul {
     margin-left: 50px;
   }
-  
+
   #sp-menu li {
     margin-bottom: 70px;
     font-size: 40px;
   }
-// header end  
+
+  #logo {
+    height: 80px;
+    margin-top: 10px;
+  }
+// header end
+
+// tweet index
+  .tweet-images {
+    height: 400px;
+    width: 500px;
+  }
+
+  .tweet-item i {
+    font-size: 13px;
+  }
+
+  .tweet-item-sub {
+    font-size: 13px;
+  }
+// tweet index end
+
+// tweet show
+  .balloon::after {
+    left: -6px;
+    top: 3px;
+    border-left: 7px solid #ffffff;
+    border-top: 7px solid #ffffff;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+
+  .balloon::before {
+    left: -6px;
+    top: 10px;
+    border-left: 7px solid #d7ebfe;
+    border-top: 7px solid #d7ebfe;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+
+  .comment-image .effect {
+    height: 45px;
+    width: 45px;
+  }
+
+// tweet show end
 }
