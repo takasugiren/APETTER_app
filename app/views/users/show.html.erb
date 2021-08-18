@@ -43,7 +43,7 @@
           </span>
           <div class="profile">
             <% if @user.profile != nil %>
-              <%= @user.profile %>
+              <%= user_text(@user.profile) %>
             <% else %>
               よろしくお願いします。
             <% end %>
