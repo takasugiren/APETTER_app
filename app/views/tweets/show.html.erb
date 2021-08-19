@@ -35,7 +35,7 @@
           </span>
           <div class="profile">
             <% if @tweet.user.profile != nil %>
-              <%= @tweet.user.profile %>
+              <%= user_text(@tweet.user.profile) %>
             <% else %>
               よろしくお願いします。
             <% end %>
@@ -114,7 +114,7 @@
         </div>
         <div class="col-2"></div>
         <div class="col-10">
-          <%= @tweet.body %>
+          <%= user_text(@tweet.body) %>
         </div>
         <div class="col-2"></div>
         <div class="col-10 mt-2">
