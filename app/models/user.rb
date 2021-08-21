@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :tweet_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :user_rooms
+  has_many :chats
   attachment :profile_image, destroy: false
   enum rank: { 非公開: 0, ブロンズ: 1, シルバー: 2, ゴールド: 3, プラチナ: 4, ダイヤ: 5, マスター: 6, プレデター: 7 }
 
