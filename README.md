@@ -44,10 +44,6 @@
 
 - https://docs.google.com/spreadsheets/d/195KEwk6vupIAOzzIMeW5CNU-Y9X-F1lt_ZKX8nkmUv8/edit?usp=sharing
 
-#### ワイヤーフレーム
-
-- https://www.figma.com/file/CyWCfF6GpOWtXieq0LifP6/Untitled?node-id=0%3A1
-
 #### 画面遷移図
 
 - https://app.diagrams.net/#G1tfiwDUvD3l5SAwti_2jBrjpI4Y1Mi0yI
