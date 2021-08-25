@@ -128,7 +128,7 @@
         </div>
         <div class="col-2"></div>
         <div class="col-10 mt-2">
-            <%= attachment_image_tag @tweet, :image, size: "740x400", class: "tweet-images", style: "border-radius: 8px;" %>
+            <%= attachment_image_tag @tweet, :image, :fill, 740, 400, width: "100%", class: "tweet-images", style: "border-radius: 8px;" %>
         </div>
         <div class="col-2"></div>
         <div class="col-10 mt-3 tags">
