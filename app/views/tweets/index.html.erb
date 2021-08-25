@@ -63,7 +63,7 @@
               <div class="col-2"></div>
               <div class="col-10 mt-2">
                 <%= link_to tweet_path(tweet) do %>
-                  <%= attachment_image_tag tweet, :image, size: "628x400", class: "tweet-images", style: "border-radius: 8px;" %>
+                  <%= attachment_image_tag tweet, :image, :fill, 628, 400, width: "100%", class: "tweet-images", style: "border-radius: 8px;" %>
                 <% end %>
               </div>
             </div>
