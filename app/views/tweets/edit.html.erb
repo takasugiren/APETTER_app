@@ -10,7 +10,7 @@
       <div class="col-12 col-lg-9">
         <%= render 'layouts/errors', obj: @tweet %>
         <div class="mt-5">
-          <%= attachment_image_tag @tweet, :image, size: "810x400", class: "tweet-image-edit", style: "border-radius: 8px;" %>
+          <%= attachment_image_tag @tweet, :image, :fill, 810, 400, width: "100%", class: "tweet-image-edit", style: "border-radius: 8px;" %>
         </div>
         <%= form_with model: @tweet, local:true do |f| %>
           <div class="form-group mt-5">

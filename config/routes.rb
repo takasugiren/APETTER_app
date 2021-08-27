@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   end
   # 通知一覧
   resources :notifications, only: :index
+  # DM機能
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 end
