@@ -712,6 +712,20 @@
   padding: 300px 30px;
 }
 
+.chat-table {
+  width: 100%;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.chat-user {
+  text-align: right;
+  vertical-align: top;
+}
+
+.chat-current-user {
+  text-align: right;
+}
 @media screen and (max-width: 425px) {
 // top
   header {

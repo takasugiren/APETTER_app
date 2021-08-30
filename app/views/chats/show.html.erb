@@ -1,21 +1,26 @@
-<table>
-  <thead>
-    <tr>
-      <td>投稿者名</td>
-      <td>投稿内容</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @chats.each do |chat| %>
-      <tr>
-        <td><%= chat.user.name %></td>
-        <td><%= chat.message %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= form_with model: @chat do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id %>
-  <%= f.submit '送信する' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 user-back">
+      <table class="chat-table">
+        <tbody>
+          <% @chats.each do |chat| %>
+            <% if chat.user != current_user %>
+            <tr>
+              <td class="col-1 chat-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></td>
+              <td class="col-11 mt-3 balloon"><%= chat.message %></td>
+            <% else %>
+              <td class="col-11 mt-3 balloon"><%= chat.message %></td>
+              <td class="chat-current-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></td>
+            </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= form_with model: @chat do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+        <%= f.submit '送信する' %>
+      <% end %>
+    </div>
+  </div>
+</div>
