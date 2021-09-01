@@ -1,26 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12 user-back">
-      <table class="chat-table">
-        <tbody>
-          <% @chats.each do |chat| %>
-            <% if chat.user != current_user %>
-            <tr>
-              <td class="col-1 chat-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></td>
-              <td class="col-11 mt-3 balloon"><%= chat.message %></td>
-            <% else %>
-              <td class="col-11 mt-3 balloon"><%= chat.message %></td>
-              <td class="chat-current-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></td>
-            </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-      <%= form_with model: @chat do |f| %>
-        <%= f.text_field :message %>
-        <%= f.hidden_field :room_id %>
-        <%= f.submit '送信する' %>
+    <div class="chat-back">
+    <% @chats.each do |chat| %>
+      <% if chat.user != current_user %>
+        <span class="col-1 chat-table chat-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></span>
+        <span class="col-11 mt-3 balloon"><%= chat.message %></span>
+      <% else %>
+        <div class="chat-current-user mt-3 mr-3"><span class="col-10 balloon"><%= chat.message %></span></div>
       <% end %>
+    <% end %>
+    <%= form_with model: @chat do |f| %>
+      <div class="form-group mt-5 col-10 mx-auto">
+        <%= f.text_field :message, class: "form-control" %>
+      </div>
+        <%= f.hidden_field :room_id %>
+      <div class="form-group mt-5 col-3 mx-auto">
+        <%= f.submit '送信する', class: "btn btn-block btn-primary" %>
+      </div>
+    <% end %>
     </div>
   </div>
 </div>
