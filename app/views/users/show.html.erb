@@ -39,7 +39,7 @@
         </div>
         <div class="col-2 mt-2 mt-lg-5">
           <% if current_user != @user %>
-            <%= link_to 'DMする', chat_path(@user.id) %>
+            <i class="far fa-envelope"></i> <%= link_to 'DMする', chat_path(@user.id) %>
           <% end %>
         </div>
         <div class="col-11 col-lg-12 flame">
