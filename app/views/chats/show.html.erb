@@ -6,7 +6,7 @@
     <div class="chat-back mt-3">
     <% @chats.each do |chat| %>
       <% if chat.user != current_user %>
-        <span class="col-1 chat-table chat-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect" %></span>
+        <span class="col-1 chat-table chat-user"><%= attachment_image_tag @chat.user, :profile_image, size: "50x50",fallback: "guest-icon.jpg", class: "effect-chat" %></span>
         <span class="col-9 mt-3 balloon"><%= chat.message %></span>
         <div class="col-2"></div>
       <% else %>
@@ -18,7 +18,7 @@
         <%= f.text_field :message, class: "form-control" %>
       </div>
         <%= f.hidden_field :room_id %>
-      <div class="form-group mt-5 col-3 mx-auto">
+      <div class="form-group mt-5 col-7 col-lg-3 mx-auto">
         <%= f.submit '送信する', class: "btn btn-block btn-primary" %>
       </div>
     <% end %>
