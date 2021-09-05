@@ -737,7 +737,7 @@
   color: #000;
   border-radius: 15px;
 }
-  
+
 .chat-balloon::after {
   content: '';
   position: absolute;
@@ -769,6 +769,11 @@
   border-right: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
+
+.effect-chat {
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 425px) {
 // top
   header {
@@ -1196,6 +1201,21 @@
     font-size: 12px;
   }
 // notification end
+
+// chat
+  .chat-balloon::after {
+    left: 272px;
+  }
+
+  .chat-balloon::before {
+    left: 272px;
+  }
+
+  .effect-chat {
+    height: 40px;
+    width: 40px;
+  }
+// chat end
 }
 
 
